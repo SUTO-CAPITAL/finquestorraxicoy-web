@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finques Torra Xicoy — Real Estate · Catalunya</title>
+<meta name="description" content="Compra, venda i lloguer d'immobles a Catalunya. Assessorament immobiliari, assegurances i certificats energètics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f5f3f0;
+  --cream-mid:#ede9e3;
+  --cream-dk:#d9d2c8;
+  --stone:#8c7d6e;
+  --stone-dk:#5c4f43;
+  --charcoal:#1c1a18;
+  --char-mid:#3d352c;
+  --white:#fdfcfb;
+  --border:rgba(28,26,24,0.1);
+  --border-md:rgba(28,26,24,0.18);
+  --slate:#a09890;
+  --slate-dk:#8a8378;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--charcoal);font-size:16px;line-height:1.7;font-weight:300;}
+
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--white);border-bottom:1px solid var(--border);padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.logo-wrap{display:flex;align-items:center;gap:14px;text-decoration:none;}
+.logo-mark{width:44px;height:44px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.logo-mark svg{width:44px;height:44px;}
+.logo-text{display:flex;flex-direction:column;gap:1px;}
+.logo-name{font-family:'Cormorant Garamond',serif;color:var(--charcoal);font-size:17px;font-weight:400;letter-spacing:0.06em;line-height:1;}
+.logo-sub{font-family:'Jost',sans-serif;color:var(--stone);font-size:9px;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;}
+nav{display:flex;align-items:center;}
+nav a{color:var(--stone-dk);text-decoration:none;font-size:12px;font-weight:400;letter-spacing:0.08em;padding:0 1.1rem;line-height:68px;transition:color 0.2s;text-transform:uppercase;}
+nav a:hover{color:var(--charcoal);}
+.nav-lang{margin-left:1.5rem;display:flex;gap:3px;}
+.lang-btn{background:none;border:1px solid var(--border-md);color:var(--stone);font-size:10px;font-weight:400;letter-spacing:0.1em;padding:4px 8px;cursor:pointer;font-family:'Jost',sans-serif;transition:all 0.2s;text-transform:uppercase;}
+.lang-btn.active,.lang-btn:hover{background:var(--charcoal);border-color:var(--charcoal);color:var(--white);}
+.header-cta{margin-left:1.5rem;background:var(--charcoal);color:var(--white);text-decoration:none;font-size:11px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;padding:9px 20px;transition:background 0.2s;white-space:nowrap;}
+.header-cta:hover{background:var(--char-mid);}
+
+.hero{min-height:100vh;background:var(--slate);display:flex;align-items:center;position:relative;overflow:hidden;padding-top:68px;}
+.hero-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(245,243,240,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(245,243,240,0.04) 1px,transparent 1px);background-size:80px 80px;}
+.hero-side{position:absolute;right:0;top:0;bottom:0;width:42%;background:var(--slate-dk);clip-path:polygon(8% 0,100% 0,100% 100%,0 100%);}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 2.5rem;width:100%;}
+.hero-eyebrow{font-size:10px;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:var(--cream-dk);margin-bottom:2.5rem;display:flex;align-items:center;gap:14px;}
+.hero-eyebrow::before{content:'';display:block;width:36px;height:1px;background:var(--cream-dk);}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3.2rem,6.5vw,5.8rem);font-weight:300;line-height:1.05;color:var(--white);margin-bottom:2rem;max-width:680px;}
+.hero h1 em{font-style:italic;color:var(--cream-mid);}
+.hero-desc{color:rgba(245,243,240,0.6);font-size:16px;font-weight:300;max-width:440px;line-height:1.8;margin-bottom:3rem;}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-fill{background:var(--cream);color:var(--charcoal);text-decoration:none;font-size:11px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;padding:13px 30px;transition:background 0.2s;display:inline-block;}
+.btn-fill:hover{background:var(--cream-mid);}
+.btn-ghost{border:1px solid rgba(245,243,240,0.3);color:rgba(245,243,240,0.75);text-decoration:none;font-size:11px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;padding:13px 30px;transition:all 0.2s;display:inline-block;}
+.btn-ghost:hover{border-color:var(--cream-dk);color:var(--cream);}
+.hero-stats{display:flex;gap:3.5rem;margin-top:5rem;padding-top:3rem;border-top:1px solid rgba(245,243,240,0.12);}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:var(--cream);line-height:1;}
+.stat-label{font-size:10px;color:rgba(245,243,240,0.4);letter-spacing:0.15em;text-transform:uppercase;margin-top:5px;}
+
+section{padding:7rem 2.5rem;}
+.container{max-width:1200px;margin:0 auto;}
+.section-label{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--stone);font-weight:400;display:flex;align-items:center;gap:12px;margin-bottom:1.5rem;}
+.section-label::before{content:'';display:block;width:28px;height:1px;background:var(--stone);}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:300;line-height:1.15;margin-bottom:1.5rem;color:var(--charcoal);}
+.section-desc{font-size:16px;color:var(--stone-dk);max-width:560px;line-height:1.8;font-weight:300;}
+
+#serveis{background:var(--white);}
+.serveis-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:4rem;border:1px solid var(--border);gap:0;}
+.servei-card{background:var(--white);padding:2.5rem 2.5rem 3rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);transition:background 0.3s;position:relative;}
+.servei-card:hover{background:var(--cream);}
+.servei-num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:var(--cream-dk);line-height:1;margin-bottom:2rem;}
+.servei-card h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--charcoal);margin-bottom:0.75rem;}
+.servei-card p{font-size:14px;color:var(--stone-dk);line-height:1.75;font-weight:300;}
+.servei-link{display:inline-flex;align-items:center;gap:8px;margin-top:1.5rem;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone);text-decoration:none;transition:color 0.2s;}
+.servei-link::after{content:'→';}
+.servei-link:hover{color:var(--charcoal);}
+
+#propietats{background:var(--cream);}
+.prop-tabs{display:flex;margin:3rem 0 2.5rem;border-bottom:1px solid var(--border-md);}
+.prop-tab{font-size:11px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone);padding:0.75rem 1.5rem;cursor:pointer;border-bottom:1.5px solid transparent;transition:all 0.2s;background:none;border-left:none;border-right:none;border-top:none;font-family:'Jost',sans-serif;margin-bottom:-1px;}
+.prop-tab.active{color:var(--charcoal);border-bottom-color:var(--charcoal);}
+.prop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;}
+.prop-card{background:var(--white);transition:transform 0.3s;overflow:hidden;}
+.prop-card:hover{transform:translateY(-3px);}
+.prop-img{height:210px;position:relative;display:flex;align-items:flex-end;overflow:hidden;}
+.prop-img-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--cream-dk) 0%,var(--stone) 100%);}
+.prop-img-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(28,26,24,0.55) 0%,transparent 55%);z-index:1;}
+.prop-badge{position:absolute;top:1rem;left:1rem;z-index:2;background:var(--white);color:var(--charcoal);font-size:9px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;padding:4px 10px;}
+.prop-price{position:relative;z-index:2;font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--white);padding:0 1.25rem 1.25rem;width:100%;}
+.prop-body{padding:1.25rem 1.5rem 1.5rem;}
+.prop-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;color:var(--charcoal);margin-bottom:3px;}
+.prop-loc{font-size:12px;color:var(--stone);letter-spacing:0.05em;}
+.prop-specs{display:flex;gap:1.5rem;margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--border);}
+.prop-spec{font-size:12px;color:var(--stone);}
+.prop-spec strong{display:block;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:var(--charcoal);}
+.prop-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;background:var(--cream-mid);}
+.prop-placeholder p{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone);}
+.propietats-cta{margin-top:3rem;text-align:center;}
+.btn-dark{display:inline-block;background:var(--charcoal);color:var(--white);text-decoration:none;font-size:11px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;padding:13px 32px;transition:background 0.2s;}
+.btn-dark:hover{background:var(--char-mid);}
+
+#valora{background:var(--cream-mid);}
+.valora-inner{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;}
+.valora-checks{margin-top:2rem;display:flex;flex-direction:column;gap:0.75rem;}
+.check-item{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--stone-dk);}
+.check-item::before{content:'';width:16px;height:1px;background:var(--stone);flex-shrink:0;}
+.valora-form{background:var(--white);padding:2.5rem;border:1px solid var(--border);}
+.form-intro{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--stone);margin-bottom:1.75rem;}
+.fgroup{margin-bottom:1.25rem;}
+.fgroup label{display:block;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--stone);margin-bottom:6px;}
+.fgroup input,.fgroup select{width:100%;background:var(--cream);border:1px solid var(--border-md);color:var(--charcoal);font-family:'Jost',sans-serif;font-size:14px;font-weight:300;padding:10px 14px;outline:none;transition:border 0.2s;appearance:none;}
+.fgroup input:focus,.fgroup select:focus{border-color:var(--stone);}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.fsubmit{width:100%;background:var(--charcoal);color:var(--white);border:none;font-family:'Jost',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;padding:13px;cursor:pointer;transition:background 0.2s;margin-top:0.5rem;}
+.fsubmit:hover{background:var(--char-mid);}
+
+#nosaltres{background:var(--white);}
+.nos-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;margin-top:4rem;}
+.nos-img{background:var(--cream-mid);min-height:460px;position:relative;overflow:hidden;}
+.nos-img-glyph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:12rem;font-weight:300;color:rgba(28,26,24,0.04);line-height:1;user-select:none;}
+.nos-badge{position:absolute;bottom:2rem;right:2rem;background:var(--charcoal);color:var(--white);padding:1.5rem;text-align:center;}
+.nos-badge-num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:var(--cream);line-height:1;display:block;}
+.nos-badge-text{font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(245,243,240,0.45);margin-top:4px;display:block;}
+.nos-text blockquote{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-style:italic;font-weight:300;color:var(--stone-dk);padding-left:1.25rem;border-left:1px solid var(--cream-dk);margin-bottom:2rem;line-height:1.55;}
+.nos-text p{font-size:15px;color:var(--stone-dk);line-height:1.85;margin-bottom:1.25rem;}
+.nos-vals{display:flex;gap:2.5rem;margin-top:2.5rem;flex-wrap:wrap;}
+.val-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--charcoal);display:block;}
+.val-text{font-size:10px;color:var(--stone);letter-spacing:0.1em;text-transform:uppercase;}
+
+#serveis-plus{background:var(--cream);}
+.plus-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:4rem;border:1px solid var(--border);background:var(--border);}
+.plus-card{background:var(--white);padding:2rem 2.25rem 2.5rem;transition:background 0.3s;}
+.plus-card:hover{background:var(--cream);}
+.plus-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--cream-dk);line-height:1;margin-bottom:1.5rem;}
+.plus-card h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:var(--charcoal);margin-bottom:0.6rem;}
+.plus-card p{font-size:13px;color:var(--stone-dk);line-height:1.75;}
+
+#contacte{background:var(--white);}
+.contacte-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:6rem;margin-top:4rem;align-items:start;}
+.c-item{display:flex;gap:1.25rem;align-items:flex-start;margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid var(--border);}
+.c-item:last-child{border-bottom:none;}
+.c-line{width:1px;height:40px;background:var(--cream-dk);flex-shrink:0;margin-top:4px;}
+.c-label{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--stone);margin-bottom:3px;}
+.c-val{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:var(--charcoal);text-decoration:none;}
+.c-val:hover{color:var(--stone-dk);}
+.cf-wrap{background:var(--cream);padding:2.5rem;border:1px solid var(--border);}
+.fl label{display:block;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--stone);margin-bottom:6px;}
+.fl input,.fl select,.fl textarea{width:100%;background:var(--white);border:1px solid var(--border-md);color:var(--charcoal);font-family:'Jost',sans-serif;font-size:14px;font-weight:300;padding:10px 14px;outline:none;transition:border 0.2s;margin-bottom:1rem;appearance:none;}
+.fl input:focus,.fl select:focus,.fl textarea:focus{border-color:var(--stone);}
+.fl textarea{min-height:110px;resize:vertical;}
+.fl-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.fl-submit{width:100%;background:var(--charcoal);color:var(--white);border:none;font-family:'Jost',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;padding:13px;cursor:pointer;transition:background 0.2s;}
+.fl-submit:hover{background:var(--char-mid);}
+
+footer{background:var(--charcoal);padding:5rem 2.5rem 2.5rem;color:rgba(245,243,240,0.35);}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:4rem;}
+.footer-logo{font-family:'Cormorant Garamond',serif;color:var(--cream);font-size:1.3rem;font-weight:300;letter-spacing:0.08em;display:block;margin-bottom:0.75rem;}
+.footer-tagline{font-size:13px;max-width:240px;line-height:1.7;font-weight:300;}
+.footer-col h4{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,243,240,0.5);margin-bottom:1.25rem;font-weight:400;}
+.footer-col a{display:block;color:rgba(245,243,240,0.35);text-decoration:none;font-size:13px;margin-bottom:0.6rem;transition:color 0.2s;font-weight:300;}
+.footer-col a:hover{color:var(--cream-mid);}
+.footer-bottom{max-width:1200px;margin:0 auto;padding-top:2rem;border-top:1px solid rgba(245,243,240,0.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-bottom a{color:rgba(245,243,240,0.25);font-size:12px;text-decoration:none;transition:color 0.2s;}
+.footer-bottom a:hover{color:var(--cream-mid);}
+
+.wa-fab{position:fixed;bottom:2rem;right:2rem;z-index:200;width:50px;height:50px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:transform 0.2s;}
+.wa-fab:hover{transform:scale(1.08);}
+.wa-fab svg{width:24px;height:24px;fill:white;}
+.nav-toggle{display:none;}
+
+@media(max-width:960px){
+  nav>a{display:none;}
+  .nav-toggle{display:block;background:none;border:none;cursor:pointer;padding:8px;}
+  .nav-toggle span{display:block;width:20px;height:1px;background:var(--charcoal);margin:5px 0;}
+  .valora-inner,.nos-grid,.contacte-grid{grid-template-columns:1fr;gap:3rem;}
+  .footer-inner{grid-template-columns:1fr 1fr;}
+  .hero-side{display:none;}
+  .hero-stats{flex-wrap:wrap;gap:2rem;}
+}
+@media(max-width:600px){
+  .hero h1{font-size:2.8rem;}
+  .footer-inner{grid-template-columns:1fr;}
+  section{padding:4.5rem 1.5rem;}
+  header{padding:0 1.5rem;}
+  .frow,.fl-row{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="#" class="logo-wrap">
+    <div class="logo-mark">
+      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0.5" y="0.5" width="47" height="47" fill="none" stroke="#1c1a18" stroke-width="0.8"/>
+        <rect x="5" y="36" width="38" height="2.5" fill="#1c1a18"/>
+        <rect x="10" y="20" width="4" height="16" fill="#1c1a18"/>
+        <rect x="22" y="20" width="4" height="16" fill="#1c1a18"/>
+        <rect x="34" y="20" width="4" height="16" fill="#1c1a18"/>
+        <path d="M 10 20 L 24 7 L 38 20" fill="none" stroke="#8c7d6e" stroke-width="0.8" stroke-linejoin="miter"/>
+        <line x1="5" y1="20" x2="43" y2="20" stroke="#8c7d6e" stroke-width="0.7"/>
+        <circle cx="24" cy="7" r="1.8" fill="#8c7d6e"/>
+      </svg>
+    </div>
+    <div class="logo-text">
+      <span class="logo-name">Finques Torra Xicoy</span>
+      <span class="logo-sub" data-i18n="logo_sub">Real Estate · Catalunya</span>
+    </div>
+  </a>
+  <nav>
+    <a href="#serveis" data-i18n="nav_serveis">Serveis</a>
+    <a href="#propietats" data-i18n="nav_prop">Propietats</a>
+    <a href="#valora" data-i18n="nav_valora">Valora</a>
+    <a href="#nosaltres" data-i18n="nav_nos">Nosaltres</a>
+    <a href="#contacte" data-i18n="nav_contacte">Contacte</a>
+    <div class="nav-lang">
+      <button class="lang-btn active" onclick="setLang('ca')">CA</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+    <a href="tel:+34663876778" class="header-cta" data-i18n="nav_cta">Truca'ns</a>
+  </nav>
+  <button class="nav-toggle"><span></span><span></span><span></span></button>
+</header>
+
+<section class="hero">
+  <div class="hero-lines"></div>
+  <div class="hero-side"></div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow" data-i18n="hero_eyebrow">Experts immobiliaris a Catalunya</p>
+    <h1 data-i18n="hero_h1">El teu immoble,<br><em>la nostra dedicació</em></h1>
+    <p class="hero-desc" data-i18n="hero_desc">Compra, venda, lloguer i gestió integral d'immobles arreu de Catalunya. Tres generacions d'experiència al teu servei.</p>
+    <div class="hero-actions">
+      <a href="#propietats" class="btn-fill" data-i18n="hero_btn1">Veure propietats</a>
+      <a href="#valora" class="btn-ghost" data-i18n="hero_btn2">Valora el teu immoble</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">+500</div><div class="stat-label" data-i18n="stat1">Operacions</div></div>
+      <div><div class="stat-num">+30</div><div class="stat-label" data-i18n="stat2">Anys d'experiència</div></div>
+      <div><div class="stat-num">100%</div><div class="stat-label" data-i18n="stat3">Tracte personal</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="serveis">
+  <div class="container">
+    <p class="section-label" data-i18n="s_label">El que oferim</p>
+    <h2 class="section-title" data-i18n="s_title">Serveis integrals<br>per a cada necessitat</h2>
+    <p class="section-desc" data-i18n="s_desc">Des de la primera consulta fins al tancament de l'operació, t'acompanyem en cada pas.</p>
+    <div class="serveis-grid">
+      <div class="servei-card"><div class="servei-num">01</div><h3 data-i18n="s1t">Compra i Venda</h3><p data-i18n="s1d">Assessorament expert per a la compra o venda del teu immoble. Gestió completa de tràmits, documentació i negociació al millor preu.</p><a href="#contacte" class="servei-link" data-i18n="s_more">Saber-ne més</a></div>
+      <div class="servei-card"><div class="servei-num">02</div><h3 data-i18n="s2t">Lloguer</h3><p data-i18n="s2d">Gestió de lloguers residencials i comercials. Cerca del llogater ideal, redacció de contractes i seguiment durant tota la vigència.</p><a href="#contacte" class="servei-link" data-i18n="s_more">Saber-ne més</a></div>
+      <div class="servei-card"><div class="servei-num">03</div><h3 data-i18n="s3t">Valoració gratuïta</h3><p data-i18n="s3d">Informe de valoració detallat i sense cost del teu immoble. Coneix el preu real de mercat i pren decisions informades.</p><a href="#valora" class="servei-link" data-i18n="s_more">Saber-ne més</a></div>
+      <div class="servei-card"><div class="servei-num">04</div><h3 data-i18n="s4t">Assegurances</h3><p data-i18n="s4d">Assegurances de llar i locals comercials. Protegeix el teu patrimoni amb les millors cobertures adaptades a les teves necessitats.</p><a href="#serveis-plus" class="servei-link" data-i18n="s_more">Saber-ne més</a></div>
+      <div class="servei-card"><div class="servei-num">05</div><h3 data-i18n="s5t">Cèdules i certificats</h3><p data-i18n="s5d">Tramitació de cèdules d'habitabilitat, certificats energètics i tota la documentació tècnica per a la venda o el lloguer.</p><a href="#serveis-plus" class="servei-link" data-i18n="s_more">Saber-ne més</a></div>
+      <div class="servei-card"><div class="servei-num">06</div><h3 data-i18n="s6t">Gestió integral</h3><p data-i18n="s6d">Administració completa del teu immoble: gestió de rendes, manteniment, incidències i relació amb els llogateres.</p><a href="#contacte" class="servei-link" data-i18n="s_more">Saber-ne més</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="propietats">
+  <div class="container">
+    <p class="section-label" data-i18n="p_label">Cartera d'immobles</p>
+    <h2 class="section-title" data-i18n="p_title">Propietats disponibles</h2>
+    <div class="prop-tabs">
+      <button class="prop-tab active" onclick="switchTab('venda',this)" data-i18n="tab_v">En venda</button>
+      <button class="prop-tab" onclick="switchTab('lloguer',this)" data-i18n="tab_l">En lloguer</button>
+    </div>
+    <div id="tab-venda" class="prop-grid">
+      <div class="prop-card"><div class="prop-img"><div class="prop-img-bg"></div><div class="prop-img-overlay"></div><span class="prop-badge" data-i18n="badge_v">Venda</span><div class="prop-price">285.000 €</div></div><div class="prop-body"><p class="prop-title" data-i18n="p1t">Pis modernista al centre</p><p class="prop-loc">Barcelona, Eixample</p><div class="prop-specs"><div class="prop-spec"><strong>3</strong><span data-i18n="spec_h">hab.</span></div><div class="prop-spec"><strong>2</strong><span data-i18n="spec_b">banys</span></div><div class="prop-spec"><strong>95 m²</strong></div></div></div></div>
+      <div class="prop-card"><div class="prop-img"><div class="prop-img-bg" style="background:linear-gradient(135deg,var(--stone) 0%,var(--stone-dk) 100%);"></div><div class="prop-img-overlay"></div><span class="prop-badge" data-i18n="badge_v">Venda</span><div class="prop-price">420.000 €</div></div><div class="prop-body"><p class="prop-title" data-i18n="p2t">Casa amb jardí a les afores</p><p class="prop-loc">Girona, Salt</p><div class="prop-specs"><div class="prop-spec"><strong>4</strong><span data-i18n="spec_h">hab.</span></div><div class="prop-spec"><strong>2</strong><span data-i18n="spec_b">banys</span></div><div class="prop-spec"><strong>180 m²</strong></div></div></div></div>
+      <div class="prop-card"><div class="prop-img" style="min-height:210px;"><div class="prop-placeholder"><p data-i18n="p_soon">Pròximament</p></div></div><div class="prop-body"><p class="prop-title" data-i18n="p3t">Propera incorporació</p><p class="prop-loc">Tarragona</p><div class="prop-specs"><div class="prop-spec"><strong>—</strong></div></div></div></div>
+    </div>
+    <div id="tab-lloguer" class="prop-grid" style="display:none">
+      <div class="prop-card"><div class="prop-img"><div class="prop-img-bg" style="background:linear-gradient(135deg,var(--char-mid) 0%,var(--stone-dk) 100%);"></div><div class="prop-img-overlay"></div><span class="prop-badge" data-i18n="badge_l">Lloguer</span><div class="prop-price">950 €/mes</div></div><div class="prop-body"><p class="prop-title" data-i18n="p4t">Pis lluminós amb terrassa</p><p class="prop-loc">Barcelona, Gràcia</p><div class="prop-specs"><div class="prop-spec"><strong>2</strong><span data-i18n="spec_h">hab.</span></div><div class="prop-spec"><strong>1</strong><span data-i18n="spec_b">bany</span></div><div class="prop-spec"><strong>68 m²</strong></div></div></div></div>
+      <div class="prop-card"><div class="prop-img"><div class="prop-img-bg" style="background:linear-gradient(135deg,var(--stone-dk) 0%,var(--charcoal) 100%);"></div><div class="prop-img-overlay"></div><span class="prop-badge" data-i18n="badge_l">Lloguer</span><div class="prop-price">1.200 €/mes</div></div><div class="prop-body"><p class="prop-title" data-i18n="p5t">Planta baixa amb pati</p><p class="prop-loc">Girona, Centre</p><div class="prop-specs"><div class="prop-spec"><strong>3</strong><span data-i18n="spec_h">hab.</span></div><div class="prop-spec"><strong>2</strong><span data-i18n="spec_b">banys</span></div><div class="prop-spec"><strong>110 m²</strong></div></div></div></div>
+    </div>
+    <div class="propietats-cta"><a href="#contacte" class="btn-dark" data-i18n="p_cta">Consulta totes les propietats</a></div>
+  </div>
+</section>
+
+<section id="valora">
+  <div class="container">
+    <div class="valora-inner">
+      <div>
+        <p class="section-label" data-i18n="v_label">Servei gratuït</p>
+        <h2 class="section-title" data-i18n="v_title">Quant val<br>el teu immoble?</h2>
+        <p class="section-desc" data-i18n="v_desc">Obtén una valoració professional i sense cost en menys de 48 hores. Sense compromisos.</p>
+        <div class="valora-checks">
+          <div class="check-item" data-i18n="vc1">Informe detallat de valoració</div>
+          <div class="check-item" data-i18n="vc2">Comparativa de mercat actualitzada</div>
+          <div class="check-item" data-i18n="vc3">Sense compromisos ni costos ocults</div>
+          <div class="check-item" data-i18n="vc4">Resposta en menys de 48 hores</div>
+        </div>
+      </div>
+      <div class="valora-form">
+        <p class="form-intro" data-i18n="v_form_intro">Omple el formulari i et contactem aviat</p>
+        <form onsubmit="return false;">
+          <div class="fgroup"><label data-i18n="f_nom">Nom complet</label><input type="text" placeholder="—"></div>
+          <div class="frow">
+            <div class="fgroup"><label data-i18n="f_tel">Telèfon</label><input type="tel" placeholder="—"></div>
+            <div class="fgroup"><label data-i18n="f_email">Correu electrònic</label><input type="email" placeholder="—"></div>
+          </div>
+          <div class="fgroup"><label data-i18n="f_adr">Adreça de l'immoble</label><input type="text" placeholder="—"></div>
+          <div class="frow">
+            <div class="fgroup"><label data-i18n="f_tipus">Tipus</label><select><option data-i18n="ft1">Pis</option><option data-i18n="ft2">Casa</option><option data-i18n="ft3">Local comercial</option><option data-i18n="ft4">Solar</option><option data-i18n="ft5">Altres</option></select></div>
+            <div class="fgroup"><label data-i18n="f_m2">Metres quadrats</label><input type="number" placeholder="—"></div>
+          </div>
+          <button type="submit" class="fsubmit" data-i18n="f_submit_v">Sol·licitar valoració gratuïta</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="nosaltres">
+  <div class="container">
+    <p class="section-label" data-i18n="n_label">La nostra història</p>
+    <div class="nos-grid">
+      <div class="nos-img">
+        <div class="nos-img-glyph">FTX</div>
+        <div class="nos-badge"><span class="nos-badge-num">+30</span><span class="nos-badge-text" data-i18n="n_badge">Anys</span></div>
+      </div>
+      <div class="nos-text">
+        <h2 class="section-title" data-i18n="n_title">Una família,<br>una vocació</h2>
+        <blockquote data-i18n="n_quote">"El nostre compromís és trobar la llar perfecta per a cada família."</blockquote>
+        <p data-i18n="n_p1">Finques Torra Xicoy és una immobiliària familiar amb més de 30 anys d'experiència en el sector immobiliari català. Fundada per la nostra mare, l'empresa ha crescut mantenint sempre els valors de proximitat, honestedat i professionalitat.</p>
+        <p data-i18n="n_p2">Actuem arreu de Catalunya, amb especial presència a Barcelona, Girona i Tarragona. El nostre equip expert acompanya cada client en tot el procés, des de la primera consulta fins al tancament de l'operació.</p>
+        <div class="nos-vals">
+          <div><span class="val-num">+500</span><span class="val-text" data-i18n="nv1">Operacions</span></div>
+          <div><span class="val-num">3</span><span class="val-text" data-i18n="nv2">Generacions</span></div>
+          <div><span class="val-num">100%</span><span class="val-text" data-i18n="nv3">Compromís</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="serveis-plus">
+  <div class="container">
+    <p class="section-label" data-i18n="sp_label">Serveis addicionals</p>
+    <h2 class="section-title" data-i18n="sp_title">Tot el que necessites,<br>en un sol lloc</h2>
+    <div class="plus-grid">
+      <div class="plus-card"><div class="plus-num">01</div><h3 data-i18n="sp1t">Assegurança de llar</h3><p data-i18n="sp1d">Cobertura completa per a habitatges. Protecció contra incendis, robatori, responsabilitat civil i danys de l'aigua.</p></div>
+      <div class="plus-card"><div class="plus-num">02</div><h3 data-i18n="sp2t">Assegurança de locals</h3><p data-i18n="sp2d">Pòlisses especialitzades per a comerços i locals comercials, adaptades a l'activitat empresarial de cada negoci.</p></div>
+      <div class="plus-card"><div class="plus-num">03</div><h3 data-i18n="sp3t">Cèdula d'habitabilitat</h3><p data-i18n="sp3d">Tramitació àgil de la cèdula d'habitabilitat. Document imprescindible per vendre o llogar un habitatge a Catalunya.</p></div>
+      <div class="plus-card"><div class="plus-num">04</div><h3 data-i18n="sp4t">Certificat energètic</h3><p data-i18n="sp4d">Emissió ràpida del certificat d'eficiència energètica. Obligatori per a qualsevol operació de venda o lloguer.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contacte">
+  <div class="container">
+    <p class="section-label" data-i18n="c_label">Parlem</p>
+    <h2 class="section-title" data-i18n="c_title">Contacta amb nosaltres</h2>
+    <div class="contacte-grid">
+      <div>
+        <div class="c-item"><div class="c-line"></div><div><p class="c-label" data-i18n="ci_tel">Telèfon / WhatsApp</p><a href="tel:+34663876778" class="c-val">+34 663 876 778</a></div></div>
+        <div class="c-item"><div class="c-line"></div><div><p class="c-label">Email</p><a href="mailto:suarez_torra@icab.cat" class="c-val">suarez_torra@icab.cat</a></div></div>
+        <div class="c-item"><div class="c-line"></div><div><p class="c-label" data-i18n="ci_xarxes">Xarxes socials</p><a href="https://www.instagram.com/finquestorraxicoy" class="c-val" target="_blank" rel="noopener">@finquestorraxicoy</a></div></div>
+      </div>
+      <div class="cf-wrap">
+        <form class="fl" onsubmit="return false;">
+          <label data-i18n="f_nom">Nom complet</label><input type="text" placeholder="El teu nom">
+          <div class="fl-row">
+            <div><label data-i18n="f_tel">Telèfon</label><input type="tel" placeholder="+34"></div>
+            <div><label data-i18n="f_email">Correu electrònic</label><input type="email" placeholder="—"></div>
+          </div>
+          <label data-i18n="f_consulta">La teva consulta</label>
+          <select><option data-i18n="fc1">Vull vendre</option><option data-i18n="fc2">Vull comprar</option><option data-i18n="fc3">Vull llogar</option><option data-i18n="fc4">Sol·licitar valoració</option><option data-i18n="fc5">Assegurances</option><option data-i18n="fc6">Cèdula / Certificat</option><option data-i18n="fc7">Altres</option></select>
+          <label data-i18n="f_msg">Missatge</label><textarea placeholder="—"></textarea>
+          <button type="submit" class="fl-submit" data-i18n="f_enviar">Enviar missatge</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div><span class="footer-logo">Finques Torra Xicoy</span><p class="footer-tagline" data-i18n="ft_tag">Immobiliària familiar amb més de 30 anys d'experiència. Compra, venda, lloguer i serveis integrals arreu de Catalunya.</p></div>
+    <div class="footer-col"><h4 data-i18n="ft_h1">Serveis</h4><a href="#serveis" data-i18n="ftl1">Compra i venda</a><a href="#serveis" data-i18n="ftl2">Lloguer</a><a href="#valora" data-i18n="ftl3">Valoració</a><a href="#serveis-plus" data-i18n="ftl4">Assegurances</a><a href="#serveis-plus" data-i18n="ftl5">Cèdules</a></div>
+    <div class="footer-col"><h4 data-i18n="ft_h2">Empresa</h4><a href="#nosaltres" data-i18n="nav_nos">Qui som</a><a href="#contacte" data-i18n="nav_contacte">Contacte</a></div>
+    <div class="footer-col"><h4 data-i18n="ft_h3">Legal</h4><a href="legal.html" data-i18n="ft_priv">Política de privacitat</a><a href="legal.html" data-i18n="ft_avis">Avís legal</a><a href="legal.html" data-i18n="ft_cook">Política de cookies</a></div>
+  </div>
+  <div class="footer-bottom">
+    <p style="font-size:12px;">© 2026 Finques Torra Xicoy · <span data-i18n="ft_rights">Tots els drets reservats</span></p>
+    <div style="display:flex;gap:1.5rem;"><a href="tel:+34663876778">+34 663 876 778</a></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/34663876778" class="wa-fab" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+const T={ca:{meta_title:"Finques Torra Xicoy — Real Estate · Catalunya",logo_sub:"Real Estate · Catalunya",nav_serveis:"Serveis",nav_prop:"Propietats",nav_valora:"Valora",nav_nos:"Nosaltres",nav_contacte:"Contacte",nav_cta:"Truca'ns",hero_eyebrow:"Experts immobiliaris a Catalunya",hero_h1:"El teu immoble,<br><em>la nostra dedicació</em>",hero_desc:"Compra, venda, lloguer i gestió integral d'immobles arreu de Catalunya. Tres generacions d'experiència al teu servei.",hero_btn1:"Veure propietats",hero_btn2:"Valora el teu immoble",stat1:"Operacions",stat2:"Anys d'experiència",stat3:"Tracte personal",s_label:"El que oferim",s_title:"Serveis integrals<br>per a cada necessitat",s_desc:"Des de la primera consulta fins al tancament de l'operació, t'acompanyem en cada pas.",s1t:"Compra i Venda",s1d:"Assessorament expert per a la compra o venda del teu immoble. Gestió completa de tràmits, documentació i negociació al millor preu.",s2t:"Lloguer",s2d:"Gestió de lloguers residencials i comercials. Cerca del llogater ideal, redacció de contractes i seguiment durant tota la vigència.",s3t:"Valoració gratuïta",s3d:"Informe de valoració detallat i sense cost del teu immoble. Coneix el preu real de mercat i pren decisions informades.",s4t:"Assegurances",s4d:"Assegurances de llar i locals comercials. Protegeix el teu patrimoni amb les millors cobertures adaptades.",s5t:"Cèdules i certificats",s5d:"Tramitació de cèdules d'habitabilitat, certificats energètics i tota la documentació tècnica necessària.",s6t:"Gestió integral",s6d:"Administració completa del teu immoble: gestió de rendes, manteniment, incidències i relació amb els llogateres.",s_more:"Saber-ne més",p_label:"Cartera d'immobles",p_title:"Propietats disponibles",tab_v:"En venda",tab_l:"En lloguer",badge_v:"Venda",badge_l:"Lloguer",p1t:"Pis modernista al centre",p2t:"Casa amb jardí a les afores",p3t:"Propera incorporació",p4t:"Pis lluminós amb terrassa",p5t:"Planta baixa amb pati",p_soon:"Pròximament",spec_h:"hab.",spec_b:"banys",p_cta:"Consulta totes les propietats",v_label:"Servei gratuït",v_title:"Quant val<br>el teu immoble?",v_desc:"Obtén una valoració professional i sense cost en menys de 48 hores. Sense compromisos.",vc1:"Informe detallat de valoració",vc2:"Comparativa de mercat actualitzada",vc3:"Sense compromisos ni costos ocults",vc4:"Resposta en menys de 48 hores",v_form_intro:"Omple el formulari i et contactem aviat",f_nom:"Nom complet",f_tel:"Telèfon",f_email:"Correu electrònic",f_adr:"Adreça de l'immoble",f_tipus:"Tipus",f_m2:"Metres quadrats",ft1:"Pis",ft2:"Casa",ft3:"Local comercial",ft4:"Solar",ft5:"Altres",f_submit_v:"Sol·licitar valoració gratuïta",n_label:"La nostra història",n_title:"Una família,<br>una vocació",n_badge:"Anys",n_quote:'"El nostre compromís és trobar la llar perfecta per a cada família."',n_p1:"Finques Torra Xicoy és una immobiliària familiar amb més de 30 anys d'experiència en el sector immobiliari català. Fundada per la nostra mare, l'empresa ha crescut mantenint sempre els valors de proximitat, honestedat i professionalitat.",n_p2:"Actuem arreu de Catalunya, amb especial presència a Barcelona, Girona i Tarragona. El nostre equip expert acompanya cada client en tot el procés.",nv1:"Operacions",nv2:"Generacions",nv3:"Compromís",sp_label:"Serveis addicionals",sp_title:"Tot el que necessites,<br>en un sol lloc",sp1t:"Assegurança de llar",sp1d:"Cobertura completa per a habitatges. Protecció contra incendis, robatori, responsabilitat civil i danys de l'aigua.",sp2t:"Assegurança de locals",sp2d:"Pòlisses especialitzades per a comerços i locals comercials, adaptades a l'activitat empresarial.",sp3t:"Cèdula d'habitabilitat",sp3d:"Tramitació àgil de la cèdula d'habitabilitat. Document imprescindible per vendre o llogar a Catalunya.",sp4t:"Certificat energètic",sp4d:"Emissió ràpida del certificat d'eficiència energètica. Obligatori per a qualsevol operació de venda o lloguer.",c_label:"Parlem",c_title:"Contacta amb nosaltres",ci_tel:"Telèfon / WhatsApp",ci_zona:"Zona de cobertura",ci_zona_v:"Tot Catalunya",ci_xarxes:"Xarxes socials",f_consulta:"La teva consulta",f_msg:"Missatge",f_enviar:"Enviar missatge",fc1:"Vull vendre",fc2:"Vull comprar",fc3:"Vull llogar",fc4:"Sol·licitar valoració",fc5:"Assegurances",fc6:"Cèdula / Certificat",fc7:"Altres",ft_tag:"Immobiliària familiar amb més de 30 anys d'experiència. Compra, venda, lloguer i serveis integrals arreu de Catalunya.",ft_h1:"Serveis",ft_h2:"Empresa",ft_h3:"Legal",ftl1:"Compra i venda",ftl2:"Lloguer",ftl3:"Valoració",ftl4:"Assegurances",ftl5:"Cèdules",ft_priv:"Política de privacitat",ft_avis:"Avís legal",ft_cook:"Política de cookies",ft_rights:"Tots els drets reservats"},es:{meta_title:"Finques Torra Xicoy — Real Estate · Cataluña",logo_sub:"Real Estate · Cataluña",nav_serveis:"Servicios",nav_prop:"Propiedades",nav_valora:"Valora",nav_nos:"Nosotros",nav_contacte:"Contacto",nav_cta:"Llámanos",hero_eyebrow:"Expertos inmobiliarios en Cataluña",hero_h1:"Tu inmueble,<br><em>nuestra dedicación</em>",hero_desc:"Compra, venta, alquiler y gestión integral de inmuebles en toda Cataluña. Tres generaciones de experiencia a tu servicio.",hero_btn1:"Ver propiedades",hero_btn2:"Valora tu inmueble",stat1:"Operaciones",stat2:"Años de experiencia",stat3:"Trato personal",s_label:"Lo que ofrecemos",s_title:"Servicios integrales<br>para cada necesidad",s_desc:"Desde la primera consulta hasta el cierre de la operación, te acompañamos en cada paso.",s1t:"Compra y Venta",s1d:"Asesoramiento experto para la compra o venta de tu inmueble. Gestión completa de trámites y negociación.",s2t:"Alquiler",s2d:"Gestión de alquileres residenciales y comerciales. Búsqueda del inquilino ideal, contratos y seguimiento.",s3t:"Valoración gratuita",s3d:"Informe de valoración detallado y sin coste. Conoce el precio real de mercado.",s4t:"Seguros",s4d:"Seguros de hogar y locales comerciales. Protege tu patrimonio con las mejores coberturas.",s5t:"Cédulas y certificados",s5d:"Tramitación de cédulas de habitabilidad, certificados energéticos y documentación técnica.",s6t:"Gestión integral",s6d:"Administración completa de tu inmueble: rentas, mantenimiento, incidencias y relación con inquilinos.",s_more:"Saber más",p_label:"Cartera de inmuebles",p_title:"Propiedades disponibles",tab_v:"En venta",tab_l:"En alquiler",badge_v:"Venta",badge_l:"Alquiler",p1t:"Piso modernista en el centro",p2t:"Casa con jardín en las afueras",p3t:"Próxima incorporación",p4t:"Piso luminoso con terraza",p5t:"Planta baja con patio",p_soon:"Próximamente",spec_h:"hab.",spec_b:"baños",p_cta:"Consulta todas las propiedades",v_label:"Servicio gratuito",v_title:"¿Cuánto vale<br>tu inmueble?",v_desc:"Obtén una valoración profesional y sin coste en menos de 48 horas. Sin compromisos.",vc1:"Informe detallado de valoración",vc2:"Comparativa de mercado actualizada",vc3:"Sin compromisos ni costes ocultos",vc4:"Respuesta en menos de 48 horas",v_form_intro:"Rellena el formulario y te contactamos pronto",f_nom:"Nombre completo",f_tel:"Teléfono",f_email:"Correo electrónico",f_adr:"Dirección del inmueble",f_tipus:"Tipo",f_m2:"Metros cuadrados",ft1:"Piso",ft2:"Casa",ft3:"Local comercial",ft4:"Solar",ft5:"Otros",f_submit_v:"Solicitar valoración gratuita",n_label:"Nuestra historia",n_title:"Una familia,<br>una vocación",n_badge:"Años",n_quote:'"Nuestro compromiso es encontrar el hogar perfecto para cada familia."',n_p1:"Finques Torra Xicoy es una inmobiliaria familiar con más de 30 años de experiencia en el sector inmobiliario catalán. Fundada por nuestra madre, la empresa ha crecido manteniendo los valores de cercanía, honestidad y profesionalidad.",n_p2:"Actuamos en toda Cataluña, con especial presencia en Barcelona, Girona y Tarragona. Nuestro equipo acompaña a cada cliente en todo el proceso.",nv1:"Operaciones",nv2:"Generaciones",nv3:"Compromiso",sp_label:"Servicios adicionales",sp_title:"Todo lo que necesitas,<br>en un solo lugar",sp1t:"Seguro de hogar",sp1d:"Cobertura completa para viviendas. Protección contra incendios, robo, responsabilidad civil y daños por agua.",sp2t:"Seguro de locales",sp2d:"Pólizas especializadas para comercios y locales comerciales, adaptadas a cada actividad empresarial.",sp3t:"Cédula de habitabilidad",sp3d:"Tramitación ágil de la cédula de habitabilidad. Imprescindible para vender o alquilar en Cataluña.",sp4t:"Certificado energético",sp4d:"Emisión rápida del certificado de eficiencia energética. Obligatorio para cualquier operación.",c_label:"Hablemos",c_title:"Contacta con nosotros",ci_tel:"Teléfono / WhatsApp",ci_zona:"Zona de cobertura",ci_zona_v:"Toda Cataluña",ci_xarxes:"Redes sociales",f_consulta:"Tu consulta",f_msg:"Mensaje",f_enviar:"Enviar mensaje",fc1:"Quiero vender",fc2:"Quiero comprar",fc3:"Quiero alquilar",fc4:"Solicitar valoración",fc5:"Seguros",fc6:"Cédula / Certificado",fc7:"Otros",ft_tag:"Inmobiliaria familiar con más de 30 años de experiencia. Compra, venta, alquiler y servicios en toda Cataluña.",ft_h1:"Servicios",ft_h2:"Empresa",ft_h3:"Legal",ftl1:"Compra y venta",ftl2:"Alquiler",ftl3:"Valoración",ftl4:"Seguros",ftl5:"Cédulas",ft_priv:"Política de privacidad",ft_avis:"Aviso legal",ft_cook:"Política de cookies",ft_rights:"Todos los derechos reservados"},en:{meta_title:"Finques Torra Xicoy — Real Estate in Catalonia",logo_sub:"Real Estate · Catalonia",nav_serveis:"Services",nav_prop:"Properties",nav_valora:"Valuation",nav_nos:"About",nav_contacte:"Contact",nav_cta:"Call us",hero_eyebrow:"Real estate experts in Catalonia",hero_h1:"Your property,<br><em>our dedication</em>",hero_desc:"Buying, selling, renting and full property management throughout Catalonia. Three generations of experience at your service.",hero_btn1:"View properties",hero_btn2:"Value your property",stat1:"Operations",stat2:"Years of experience",stat3:"Personal service",s_label:"What we offer",s_title:"Comprehensive services<br>for every need",s_desc:"From the first consultation to closing the deal, we accompany you every step of the way.",s1t:"Buying & Selling",s1d:"Expert advice for buying or selling your property. Full management of paperwork, documentation and negotiation.",s2t:"Rental",s2d:"Management of residential and commercial rentals. Finding the ideal tenant, contracts and ongoing support.",s3t:"Free valuation",s3d:"Detailed, no-cost property valuation report. Know the real market price and make informed decisions.",s4t:"Insurance",s4d:"Home and commercial insurance. Protect your assets with the best coverage tailored to your needs.",s5t:"Certificates & documents",s5d:"Processing of habitability certificates, energy certificates and all required technical documentation.",s6t:"Full management",s6d:"Complete property management: rent collection, maintenance, incidents and tenant relations.",s_more:"Learn more",p_label:"Property portfolio",p_title:"Available properties",tab_v:"For sale",tab_l:"For rent",badge_v:"For sale",badge_l:"For rent",p1t:"Modernist flat in the centre",p2t:"House with garden in the suburbs",p3t:"Coming soon",p4t:"Bright flat with terrace",p5t:"Ground floor with patio",p_soon:"Coming soon",spec_h:"bed.",spec_b:"baths",p_cta:"View all properties",v_label:"Free service",v_title:"How much is<br>your property worth?",v_desc:"Get a professional, no-cost valuation in less than 48 hours. No commitment required.",vc1:"Detailed valuation report",vc2:"Updated market comparison",vc3:"No commitment or hidden costs",vc4:"Response in less than 48 hours",v_form_intro:"Fill in the form and we will contact you shortly",f_nom:"Full name",f_tel:"Phone",f_email:"Email address",f_adr:"Property address",f_tipus:"Type",f_m2:"Square metres",ft1:"Flat",ft2:"House",ft3:"Commercial premises",ft4:"Plot",ft5:"Other",f_submit_v:"Request free valuation",n_label:"Our story",n_title:"One family,<br>one vocation",n_badge:"Years",n_quote:'"Our commitment is to find the perfect home for every family."',n_p1:"Finques Torra Xicoy is a family real estate agency with over 30 years of experience in the Catalan property market. Founded by our mother, the company has grown while always maintaining the values of closeness, honesty and professionalism.",n_p2:"We operate throughout Catalonia, with a strong presence in Barcelona, Girona and Tarragona. Our team accompanies every client through the entire process.",nv1:"Operations",nv2:"Generations",nv3:"Commitment",sp_label:"Additional services",sp_title:"Everything you need,<br>in one place",sp1t:"Home insurance",sp1d:"Full coverage for residential properties. Protection against fire, theft, liability and water damage.",sp2t:"Commercial insurance",sp2d:"Specialist policies for shops and commercial premises, adapted to each business activity.",sp3t:"Habitability certificate",sp3d:"Fast processing of the habitability certificate. Essential for selling or renting any property in Catalonia.",sp4t:"Energy certificate",sp4d:"Quick issue of the energy efficiency certificate. Mandatory for any sale or rental operation.",c_label:"Let's talk",c_title:"Contact us",ci_tel:"Phone / WhatsApp",ci_zona:"Coverage area",ci_zona_v:"All Catalonia",ci_xarxes:"Social media",f_consulta:"Your enquiry",f_msg:"Message",f_enviar:"Send message",fc1:"I want to sell",fc2:"I want to buy",fc3:"I want to rent",fc4:"Request valuation",fc5:"Insurance",fc6:"Certificate / Document",fc7:"Other",ft_tag:"Family real estate agency with over 30 years of experience. Buying, selling, renting and full services throughout Catalonia.",ft_h1:"Services",ft_h2:"Company",ft_h3:"Legal",ftl1:"Buying & selling",ftl2:"Rental",ftl3:"Valuation",ftl4:"Insurance",ftl5:"Certificates",ft_priv:"Privacy policy",ft_avis:"Legal notice",ft_cook:"Cookie policy",ft_rights:"All rights reserved"}};
+function setLang(lang){document.querySelectorAll('.lang-btn').forEach(b=>{b.classList.toggle('active',b.textContent.toLowerCase()===lang);});const t=T[lang];document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(!t[k])return;if(el.tagName==='INPUT'||el.tagName==='TEXTAREA')el.placeholder=t[k];else if(el.tagName==='META')el.setAttribute('content',t[k]);else el.innerHTML=t[k];});document.documentElement.lang=lang;document.title=t.meta_title||document.title;}
+function switchTab(tab,btn){document.querySelectorAll('.prop-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.getElementById('tab-venda').style.display=tab==='venda'?'grid':'none';document.getElementById('tab-lloguer').style.display=tab==='lloguer'?'grid':'none';}
+</script>
+</body>
+</html>
