@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pis reformat · Nova Esquerra de l'Eixample · 7è 1a · 106 m² — Finques Torra Xicoy</title>
+<meta name="description" content="Pis de 106 m² reformat a la Nova Esquerra de l'Eixample. 3 habitacions, 1 en suite, 2 banys, balcó. Pl. Francesc Macià / Urgell, 7è 1a.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f5f3f0;
+  --cream-mid:#ede9e3;
+  --cream-dk:#d9d2c8;
+  --stone:#8c7d6e;
+  --stone-dk:#5c4f43;
+  --charcoal:#1c1a18;
+  --char-mid:#3d352c;
+  --white:#fdfcfb;
+  --border:rgba(28,26,24,0.1);
+  --border-md:rgba(28,26,24,0.18);
+  --slate:#a09890;
+  --slate-dk:#8a8378;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--charcoal);font-size:16px;line-height:1.7;font-weight:300;}
+
+/* HEADER */
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--white);border-bottom:1px solid var(--border);padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.logo-wrap{display:flex;align-items:center;gap:14px;text-decoration:none;}
+.logo-mark{width:44px;height:44px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.logo-mark svg{width:44px;height:44px;}
+.logo-text{display:flex;flex-direction:column;gap:1px;}
+.logo-name{font-family:'Cormorant Garamond',serif;color:var(--charcoal);font-size:17px;font-weight:400;letter-spacing:0.06em;line-height:1;}
+.logo-sub{font-family:'Jost',sans-serif;color:var(--stone);font-size:9px;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;}
+.header-back{color:var(--stone-dk);text-decoration:none;font-size:11px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;display:flex;align-items:center;gap:8px;transition:color 0.2s;}
+.header-back:hover{color:var(--charcoal);}
+.header-back::before{content:'←';}
+.header-cta{margin-left:1.5rem;background:var(--charcoal);color:var(--white);text-decoration:none;font-size:11px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;padding:9px 20px;transition:background 0.2s;white-space:nowrap;}
+.header-cta:hover{background:var(--char-mid);}
+
+/* HERO GALERIA */
+.prop-hero{margin-top:68px;position:relative;height:78vh;min-height:520px;background:var(--charcoal);overflow:hidden;}
+.hero-gallery{position:relative;width:100%;height:100%;}
+.hg-slide{position:absolute;inset:0;opacity:0;transition:opacity 0.6s ease;}
+.hg-slide.active{opacity:1;}
+.hg-slide-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--slate-dk) 0%,var(--charcoal) 100%);}
+.hg-placeholder-label{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:300;color:rgba(245,243,240,0.25);letter-spacing:0.12em;}
+.hg-overlay{position:absolute;inset:0;background:linear-gradient(to top, rgba(28,26,24,0.65) 0%, rgba(28,26,24,0.1) 50%, transparent 100%);z-index:2;}
+.hg-info{position:absolute;bottom:0;left:0;right:0;z-index:3;padding:2.5rem 3rem 3rem;}
+.hg-badge{display:inline-block;background:var(--white);color:var(--charcoal);font-size:9px;font-weight:400;letter-spacing:0.16em;text-transform:uppercase;padding:5px 12px;margin-bottom:1.25rem;}
+.hg-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,5vw,4.2rem);font-weight:300;color:var(--white);line-height:1.05;margin-bottom:0.5rem;}
+.hg-sub{font-size:13px;color:rgba(245,243,240,0.65);letter-spacing:0.06em;}
+.hg-counter{position:absolute;top:2rem;right:3rem;z-index:3;font-size:11px;color:rgba(245,243,240,0.6);letter-spacing:0.1em;font-weight:400;}
+.hg-nav{position:absolute;bottom:50%;transform:translateY(50%);z-index:4;display:flex;gap:0;}
+.hg-prev{left:1.5rem;}
+.hg-next{right:1.5rem;}
+.hg-btn{background:rgba(253,252,251,0.18);border:1px solid rgba(253,252,251,0.25);color:var(--white);font-size:1.3rem;width:48px;height:48px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background 0.2s;backdrop-filter:blur(4px);}
+.hg-btn:hover{background:rgba(253,252,251,0.32);}
+.hg-dots{position:absolute;bottom:1.5rem;right:3rem;z-index:4;display:flex;gap:6px;align-items:center;}
+.hg-dot{width:5px;height:5px;border-radius:50%;background:rgba(245,243,240,0.35);border:none;cursor:pointer;padding:0;transition:background 0.2s;}
+.hg-dot.active{background:var(--white);width:18px;border-radius:3px;}
+
+/* SPECS BAR */
+.specs-bar{background:var(--white);border-bottom:1px solid var(--border);}
+.specs-inner{max-width:1200px;margin:0 auto;padding:0 2.5rem;display:flex;align-items:stretch;gap:0;}
+.spec-item{padding:1.75rem 2.5rem;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:3px;}
+.spec-item:first-child{padding-left:0;}
+.spec-label{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--stone);font-weight:400;}
+.spec-value{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--charcoal);line-height:1.1;}
+.spec-unit{font-family:'Jost',sans-serif;font-size:11px;color:var(--stone);letter-spacing:0.06em;}
+
+/* MAIN LAYOUT */
+.prop-main{max-width:1200px;margin:0 auto;padding:5rem 2.5rem;display:grid;grid-template-columns:1fr 380px;gap:5rem;align-items:start;}
+
+/* DESCRIPTION */
+.section-label{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--stone);font-weight:400;display:flex;align-items:center;gap:12px;margin-bottom:1.5rem;}
+.section-label::before{content:'';display:block;width:28px;height:1px;background:var(--stone);}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:300;line-height:1.15;margin-bottom:1.5rem;color:var(--charcoal);}
+.prop-desc p{font-size:15px;color:var(--stone-dk);line-height:1.9;margin-bottom:1.25rem;font-weight:300;}
+
+/* FEATURES LIST */
+.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:3rem;border:1px solid var(--border);}
+.feat-item{padding:1.1rem 1.5rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;font-size:13px;color:var(--stone-dk);font-weight:300;}
+.feat-item::before{content:'—';color:var(--stone);font-size:10px;flex-shrink:0;}
+.feat-item:nth-child(2n){border-right:none;}
+
+/* PLACEHOLDER GALERIA */
+.placeholder-gallery{margin-top:4rem;}
+.placeholder-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:1.5rem;}
+.ph-cell{background:var(--cream-mid);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;aspect-ratio:4/3;}
+.ph-cell.wide{grid-column:span 2;}
+.ph-label{font-size:10px;color:var(--stone);letter-spacing:0.1em;text-transform:uppercase;}
+
+/* SIDEBAR */
+.sidebar-card{background:var(--white);border:1px solid var(--border);padding:2rem 2rem 2.5rem;margin-bottom:1.5rem;position:sticky;top:88px;}
+.sidebar-price{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:300;color:var(--charcoal);line-height:1;margin-bottom:0.4rem;}
+.sidebar-price-note{font-size:11px;color:var(--stone);letter-spacing:0.06em;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
+.sidebar-specs{display:flex;flex-direction:column;gap:0;margin-bottom:2rem;}
+.ss-row{display:flex;justify-content:space-between;align-items:center;padding:0.65rem 0;border-bottom:1px solid var(--border);}
+.ss-label{font-size:11px;color:var(--stone);letter-spacing:0.06em;text-transform:uppercase;}
+.ss-value{font-size:13px;color:var(--charcoal);font-weight:400;}
+.btn-cta-main{display:block;width:100%;background:var(--charcoal);color:var(--white);text-decoration:none;font-size:11px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;padding:14px;text-align:center;transition:background 0.2s;border:none;cursor:pointer;font-family:'Jost',sans-serif;margin-bottom:0.75rem;}
+.btn-cta-main:hover{background:var(--char-mid);}
+.btn-cta-wa{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:none;color:var(--charcoal);border:1px solid var(--border-md);font-size:11px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;padding:13px;text-decoration:none;transition:border-color 0.2s;}
+.btn-cta-wa:hover{border-color:var(--stone);}
+.btn-cta-wa svg{width:16px;height:16px;fill:#25d366;}
+
+/* CONTACT STRIP */
+.contact-strip{background:var(--charcoal);padding:5rem 2.5rem;}
+.contact-strip .container{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.cs-title{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:300;color:var(--white);line-height:1.1;margin-bottom:1rem;}
+.cs-desc{font-size:14px;color:rgba(245,243,240,0.5);line-height:1.8;font-weight:300;}
+.cs-form{display:flex;flex-direction:column;gap:1rem;}
+.cs-form input,.cs-form textarea{background:rgba(245,243,240,0.06);border:1px solid rgba(245,243,240,0.12);color:var(--white);font-family:'Jost',sans-serif;font-size:14px;font-weight:300;padding:11px 14px;outline:none;transition:border 0.2s;width:100%;}
+.cs-form input::placeholder,.cs-form textarea::placeholder{color:rgba(245,243,240,0.3);}
+.cs-form input:focus,.cs-form textarea:focus{border-color:rgba(245,243,240,0.35);}
+.cs-form textarea{min-height:100px;resize:vertical;}
+.cs-submit{background:var(--cream);color:var(--charcoal);border:none;font-family:'Jost',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;padding:13px;cursor:pointer;transition:background 0.2s;width:100%;}
+.cs-submit:hover{background:var(--cream-mid);}
+
+/* FOOTER */
+footer{background:var(--charcoal);padding:3rem 2.5rem 2rem;color:rgba(245,243,240,0.35);border-top:1px solid rgba(245,243,240,0.05);}
+.footer-bottom{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-bottom a{color:rgba(245,243,240,0.25);font-size:12px;text-decoration:none;transition:color 0.2s;}
+.footer-bottom a:hover{color:var(--cream-mid);}
+
+/* WA FAB */
+.wa-fab{position:fixed;bottom:2rem;right:2rem;z-index:200;width:50px;height:50px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:transform 0.2s;}
+.wa-fab:hover{transform:scale(1.08);}
+.wa-fab svg{width:24px;height:24px;fill:white;}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .prop-main{grid-template-columns:1fr;gap:3rem;}
+  .prop-sidebar .sidebar-card{position:static;}
+  .contact-strip .container{grid-template-columns:1fr;gap:3rem;}
+  .placeholder-grid{grid-template-columns:1fr 1fr;}
+  .ph-cell.wide{grid-column:span 1;}
+  .specs-inner{flex-wrap:wrap;}
+  .spec-item{padding:1.25rem 1.5rem;}
+}
+@media(max-width:600px){
+  header{padding:0 1.2rem;}
+  .hg-info{padding:1.5rem 1.5rem 2rem;}
+  .prop-main,.contact-strip{padding-left:1.5rem;padding-right:1.5rem;}
+  .feat-grid{grid-template-columns:1fr;}
+  .feat-item:nth-child(2n){border-right:1px solid var(--border);}
+  .placeholder-grid{grid-template-columns:1fr;}
+  .ph-cell.wide{grid-column:span 1;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="index.html" class="logo-wrap">
+    <div class="logo-mark">
+      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0.5" y="0.5" width="47" height="47" fill="none" stroke="#1c1a18" stroke-width="0.8"/>
+        <rect x="5" y="36" width="38" height="2.5" fill="#1c1a18"/>
+        <rect x="10" y="20" width="4" height="16" fill="#1c1a18"/>
+        <rect x="22" y="20" width="4" height="16" fill="#1c1a18"/>
+        <rect x="34" y="20" width="4" height="16" fill="#1c1a18"/>
+        <text x="24" y="17" font-family="Cormorant Garamond, serif" font-size="11" font-weight="400" fill="#8c7d6e" text-anchor="middle" textLength="22" lengthAdjust="spacing">FTX</text>
+        <line x1="5" y1="20" x2="43" y2="20" stroke="#8c7d6e" stroke-width="0.7"/>
+      </svg>
+    </div>
+    <div class="logo-text">
+      <span class="logo-name">Finques Torra Xicoy</span>
+      <span class="logo-sub">Real Estate · Catalunya</span>
+    </div>
+  </a>
+  <div style="display:flex;align-items:center;gap:1.5rem;">
+    <a href="index.html#propietats" class="header-back">Totes les propietats</a>
+    <a href="tel:+34663876778" class="header-cta">Truca'ns</a>
+  </div>
+</header>
+
+<!-- HERO GALERIA -->
+<div class="prop-hero">
+  <div class="hero-gallery" id="heroGallery">
+    <div class="hg-slide active">
+      <div class="hg-slide-placeholder"><span class="hg-placeholder-label">Sala · Menjador</span></div>
+    </div>
+    <div class="hg-slide">
+      <div class="hg-slide-placeholder"><span class="hg-placeholder-label">Cuina equipada</span></div>
+    </div>
+    <div class="hg-slide">
+      <div class="hg-slide-placeholder"><span class="hg-placeholder-label">Habitació en suite</span></div>
+    </div>
+    <div class="hg-slide">
+      <div class="hg-slide-placeholder"><span class="hg-placeholder-label">Bany suite</span></div>
+    </div>
+    <div class="hg-slide">
+      <div class="hg-slide-placeholder"><span class="hg-placeholder-label">Balcó · Vistes</span></div>
+    </div>
+  </div>
+  <div class="hg-overlay"></div>
+  <div class="hg-info">
+    <div class="hg-badge">En venda</div>
+    <h1 class="hg-title">Pis reformat · 7è 1a<br><em style="font-style:italic;color:rgba(245,243,240,0.7);">Nova Esquerra de l'Eixample</em></h1>
+    <p class="hg-sub">106 m² · 3 habitacions · 2 banys · 1 en suite · Balcó · Ben comunicat</p>
+  </div>
+  <div class="hg-counter" id="hgCounter">1 / 5</div>
+  <button class="hg-btn hg-prev" onclick="hgMove(-1)">‹</button>
+  <button class="hg-btn hg-next" onclick="hgMove(1)">›</button>
+  <div class="hg-dots" id="hgDots">
+    <button class="hg-dot active" onclick="hgGo(0)"></button>
+    <button class="hg-dot" onclick="hgGo(1)"></button>
+    <button class="hg-dot" onclick="hgGo(2)"></button>
+    <button class="hg-dot" onclick="hgGo(3)"></button>
+    <button class="hg-dot" onclick="hgGo(4)"></button>
+  </div>
+</div>
+
+<!-- SPECS BAR -->
+<div class="specs-bar">
+  <div class="specs-inner">
+    <div class="spec-item">
+      <span class="spec-label">Superfície</span>
+      <span class="spec-value">106 <span class="spec-unit">m²</span></span>
+    </div>
+    <div class="spec-item">
+      <span class="spec-label">Dormitoris</span>
+      <span class="spec-value">3</span>
+    </div>
+    <div class="spec-item">
+      <span class="spec-label">Banys</span>
+      <span class="spec-value">2</span>
+    </div>
+    <div class="spec-item">
+      <span class="spec-label">Planta</span>
+      <span class="spec-value">7è</span>
+    </div>
+    <div class="spec-item">
+      <span class="spec-label">Suite</span>
+      <span class="spec-value">Sí</span>
+    </div>
+    <div class="spec-item">
+      <span class="spec-label">Balcó</span>
+      <span class="spec-value">Sí</span>
+    </div>
+    <div class="spec-item">
+      <span class="spec-label">Estat</span>
+      <span class="spec-value" style="font-size:1rem;font-family:'Jost',sans-serif;font-weight:300;">Reformat</span>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="prop-main">
+
+  <!-- LEFT: Descripció i característiques -->
+  <div class="prop-content">
+    <p class="section-label">Descripció</p>
+    <h2 class="section-title">Un pis reformat<br>en una ubicació privilegiada</h2>
+    <div class="prop-desc">
+      <p>Magnífic habitatge de 106 m² situat a la setena planta, completament reformat, al cor de la Nova Esquerra de l'Eixample. L'immoble es troba a l'eix Plaça Francesc Macià / Urgell, una de les zones més ben comunicades i vivibles de Barcelona, amb accés directe al metro, autobusos i a tots els serveis del barri.</p>
+      <p>L'habitatge compta amb una distribució funcional i lluminosa que inclou tres dormitoris, un d'ells en suite amb bany privat. La cuina, totalment equipada, s'integra de manera elegant en l'espai. El balcó ofereix vistes obertes i llum natural al llarg del dia.</p>
+      <p>La reforma recent garanteix uns acabats de qualitat i un estat impecable. A més, la seva excel·lent connectivitat fa d'aquest pis una opció ideal tant per a ús habitual com per a inversió.</p>
+    </div>
+
+    <!-- Característiques -->
+    <div style="margin-top:3.5rem;">
+      <p class="section-label">Característiques</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-item">Pis reformat</div>
+      <div class="feat-item">7è pis</div>
+      <div class="feat-item">1 habitació en suite</div>
+      <div class="feat-item">1 bany en suite</div>
+      <div class="feat-item">Cuina equipada</div>
+      <div class="feat-item">Balcó exterior</div>
+      <div class="feat-item">Ben comunicat</div>
+      <div class="feat-item">Pl. Francesc Macià / Urgell</div>
+      <div class="feat-item">3 habitacions dobles</div>
+      <div class="feat-item">2 banys complerts</div>
+      <div class="feat-item">106 m² útils</div>
+      <div class="feat-item">Nova Esquerra de l'Eixample</div>
+    </div>
+
+    <!-- Avís fotos -->
+    <div class="placeholder-gallery">
+      <p class="section-label" style="margin-top:3.5rem;">Galeria</p>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;margin-bottom:0.5rem;color:var(--charcoal);">Imatges de la propietat</h3>
+      <p style="font-size:13px;color:var(--stone);margin-bottom:0;">Les fotografies estaran disponibles properament. Contacta'ns per concertar una visita.</p>
+      <div class="placeholder-grid">
+        <div class="ph-cell wide"><span class="ph-label">Sala · Menjador</span></div>
+        <div class="ph-cell"><span class="ph-label">Cuina</span></div>
+        <div class="ph-cell"><span class="ph-label">Suite</span></div>
+        <div class="ph-cell"><span class="ph-label">Bany suite</span></div>
+        <div class="ph-cell wide"><span class="ph-label">Balcó · Vistes</span></div>
+        <div class="ph-cell"><span class="ph-label">Dormitori 2</span></div>
+        <div class="ph-cell"><span class="ph-label">Dormitori 3</span></div>
+        <div class="ph-cell"><span class="ph-label">Bany</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT: Sidebar contacte -->
+  <div class="prop-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-price">Consulteu preu</div>
+      <div class="sidebar-price-note">Preu a consultar · Finançament disponible</div>
+
+      <div class="sidebar-specs">
+        <div class="ss-row"><span class="ss-label">Referència</span><span class="ss-value">7è 1a</span></div>
+        <div class="ss-row"><span class="ss-label">Superfície</span><span class="ss-value">106 m²</span></div>
+        <div class="ss-row"><span class="ss-label">Dormitoris</span><span class="ss-value">3</span></div>
+        <div class="ss-row"><span class="ss-label">Banys</span><span class="ss-value">2</span></div>
+        <div class="ss-row"><span class="ss-label">Suite</span><span class="ss-value">Sí (1 habitació)</span></div>
+        <div class="ss-row"><span class="ss-label">Planta</span><span class="ss-value">7è</span></div>
+        <div class="ss-row"><span class="ss-label">Balcó</span><span class="ss-value">Sí</span></div>
+        <div class="ss-row"><span class="ss-label">Cuina</span><span class="ss-value">Equipada</span></div>
+        <div class="ss-row"><span class="ss-label">Estat</span><span class="ss-value">Reformat</span></div>
+        <div class="ss-row"><span class="ss-label">Zona</span><span class="ss-value">Nova Esq. Eixample</span></div>
+      </div>
+
+      <a href="tel:+34663876778" class="btn-cta-main">Trucar ara</a>
+      <a href="https://wa.me/34663876778?text=Hola,%20m'interessa%20el%20pis%20reformat%20a%20la%20Nova%20Esquerra%20de%20l'Eixample%20de%20106%20m%C2%B2.%20Podeu%20donar-me%20m%C3%A9s%20informaci%C3%B3%3F" class="btn-cta-wa" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+
+    <div class="sidebar-card">
+      <p class="section-label" style="margin-bottom:1rem;">Agent responsable</p>
+      <p style="font-size:14px;color:var(--stone-dk);margin-bottom:0.4rem;">Finques Torra Xicoy</p>
+      <a href="tel:+34663876778" style="font-size:13px;color:var(--stone);text-decoration:none;display:block;margin-bottom:0.3rem;">+34 663 876 778</a>
+      <a href="mailto:suarez_torra@icab.cat" style="font-size:13px;color:var(--stone);text-decoration:none;display:block;">suarez_torra@icab.cat</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- CONTACT STRIP -->
+<div class="contact-strip">
+  <div class="container">
+    <div>
+      <p style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(245,243,240,0.35);margin-bottom:1rem;">Contacte</p>
+      <h2 class="cs-title">T'interessa<br>aquest habitatge?</h2>
+      <p class="cs-desc">Contacta amb nosaltres per concertar una visita o rebre més informació sense cap compromís.</p>
+      <div style="margin-top:2.5rem;display:flex;flex-direction:column;gap:1rem;">
+        <a href="tel:+34663876778" style="color:rgba(245,243,240,0.7);text-decoration:none;font-size:13px;display:flex;align-items:center;gap:10px;">
+          <span style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,243,240,0.3);min-width:80px;">Telèfon</span>
+          +34 663 876 778
+        </a>
+        <a href="mailto:suarez_torra@icab.cat" style="color:rgba(245,243,240,0.7);text-decoration:none;font-size:13px;display:flex;align-items:center;gap:10px;">
+          <span style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,243,240,0.3);min-width:80px;">Email</span>
+          suarez_torra@icab.cat
+        </a>
+        <a href="https://www.instagram.com/finquestorraxicoy" target="_blank" rel="noopener" style="color:rgba(245,243,240,0.7);text-decoration:none;font-size:13px;display:flex;align-items:center;gap:10px;">
+          <span style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,243,240,0.3);min-width:80px;">Instagram</span>
+          @finquestorraxicoy
+        </a>
+      </div>
+    </div>
+    <form class="cs-form" onsubmit="return false;">
+      <input type="text" placeholder="Nom complet">
+      <input type="tel" placeholder="Telèfon">
+      <input type="email" placeholder="Correu electrònic">
+      <textarea placeholder="M'interessa el pis 7è 1a de 106 m² a la Nova Esquerra de l'Eixample. Voldria concertar una visita..."></textarea>
+      <button type="submit" class="cs-submit">Enviar missatge</button>
+    </form>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-bottom">
+    <p style="font-size:12px;">© 2026 Finques Torra Xicoy · Tots els drets reservats</p>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="tel:+34663876778">+34 663 876 778</a>
+      <a href="index.html">← Tornar a l'inici</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WA FAB -->
+<a href="https://wa.me/34663876778?text=Hola,%20m'interessa%20el%20pis%20reformat%20a%20la%20Nova%20Esquerra%20de%20l'Eixample%20de%20106%20m%C2%B2." class="wa-fab" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+const hgSlides = document.querySelectorAll('.hg-slide');
+const hgDots   = document.querySelectorAll('.hg-dot');
+const hgCounter = document.getElementById('hgCounter');
+let hgCur = 0;
+
+function hgMove(dir) {
+  hgSlides[hgCur].classList.remove('active');
+  hgDots[hgCur].classList.remove('active');
+  hgCur = (hgCur + dir + hgSlides.length) % hgSlides.length;
+  hgSlides[hgCur].classList.add('active');
+  hgDots[hgCur].classList.add('active');
+  hgCounter.textContent = (hgCur + 1) + ' / ' + hgSlides.length;
+}
+function hgGo(idx) {
+  hgSlides[hgCur].classList.remove('active');
+  hgDots[hgCur].classList.remove('active');
+  hgCur = idx;
+  hgSlides[hgCur].classList.add('active');
+  hgDots[hgCur].classList.add('active');
+  hgCounter.textContent = (hgCur + 1) + ' / ' + hgSlides.length;
+}
+setInterval(() => hgMove(1), 5000);
+</script>
+</body>
+</html>
