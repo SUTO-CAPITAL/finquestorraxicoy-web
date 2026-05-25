@@ -736,3 +736,11 @@ footer a:hover { color: var(--white); }
 [data-lang] { display: none; }
 [data-lang].active { display: block; }
 span[data-lang].active { display: inline; }
+h1[data-lang].active { display: block; }
+h2[data-lang].active { display: block; }
+h3[data-lang].active { display: block; }
+p[data-lang].active { display: block; }
+a[data-lang].active { display: block; }
+div[data-lang].active { display: block; }
+label[data-lang].active { display: block; }
+.lang-btn { display: block; }
