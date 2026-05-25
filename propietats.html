@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Propietats · Finques Torra Xicoy</title>
+  <meta name="description" content="Propietats en venda i lloguer a Barcelona i Catalunya. Finques Torra Xicoy." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-box">
+      <span>FTX</span>
+      <div class="nav-logo-cols">
+        <div class="nav-logo-col"></div>
+        <div class="nav-logo-col"></div>
+        <div class="nav-logo-col"></div>
+      </div>
+    </div>
+    <div class="nav-logo-text">
+      <strong>Finques Torra Xicoy</strong>
+      <small>Real Estate · Catalunya</small>
+    </div>
+  </a>
+  <div class="nav-right">
+    <div class="nav-lang">
+      <button class="lang-btn active" data-lang="ca">CA</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <button class="nav-menu-btn" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="menu-overlay">
+  <button class="menu-close">✕</button>
+  <nav class="menu-links">
+    <a href="index.html"><span data-lang="ca">Inici</span><span data-lang="es">Inicio</span><span data-lang="en">Home</span></a>
+    <a href="serveis.html"><span data-lang="ca">Serveis</span><span data-lang="es">Servicios</span><span data-lang="en">Services</span></a>
+    <a href="propietats.html"><span data-lang="ca">Propietats</span><span data-lang="es">Propiedades</span><span data-lang="en">Properties</span></a>
+    <a href="nosaltres.html"><span data-lang="ca">Nosaltres</span><span data-lang="es">Nosotros</span><span data-lang="en">About</span></a>
+    <a href="valoracio.html"><span data-lang="ca">Valoració</span><span data-lang="es">Valoración</span><span data-lang="en">Valuation</span></a>
+    <a href="contacte.html"><span data-lang="ca">Contacte</span><span data-lang="es">Contacto</span><span data-lang="en">Contact</span></a>
+  </nav>
+  <div class="menu-contact">
+    <div>+34 663 876 778</div>
+    <a href="mailto:suarez_torra@icab.cat">suarez_torra@icab.cat</a>
+  </div>
+</div>
+
+<main>
+  <div class="breadcrumb">
+    <a href="index.html">Finques Torra Xicoy</a>
+    <span>/</span>
+    <span data-lang="ca">Propietats</span>
+    <span data-lang="es">Propiedades</span>
+    <span data-lang="en">Properties</span>
+  </div>
+
+  <section class="hero section">
+    <div class="container">
+      <p class="label">
+        <span data-lang="ca">Cartera d'immobles</span>
+        <span data-lang="es">Cartera de inmuebles</span>
+        <span data-lang="en">Property portfolio</span>
+      </p>
+      <h1 data-lang="ca">Propietats disponibles</h1>
+      <h1 data-lang="es">Propiedades disponibles</h1>
+      <h1 data-lang="en">Available properties</h1>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+
+      <!-- TABS VENDA / LLOGUER -->
+      <div data-tabs>
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="venda">
+            <span data-lang="ca">En venda</span>
+            <span data-lang="es">En venta</span>
+            <span data-lang="en">For sale</span>
+          </button>
+          <button class="tab-btn" data-tab="lloguer">
+            <span data-lang="ca">En lloguer</span>
+            <span data-lang="es">En alquiler</span>
+            <span data-lang="en">For rent</span>
+          </button>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- PROPIETATS EN VENDA                                          -->
+        <!-- Per afegir un pis nou: copiar el bloc "property-card"        -->
+        <!-- i omplir les dades. Les fotos van com <img src="foto.jpg">   -->
+        <!-- ============================================================ -->
+        <div data-tab-content="venda">
+
+          <!-- PIS 1 -->
+          <div class="property-card">
+            <div class="img-gallery" style="position:relative;">
+              <div class="gallery-track">
+                <!-- AFEGEIX LES FOTOS DEL PIS AQUÍ: -->
+                <!-- <div class="gallery-slide"><img src="fotos/pis1-01.jpg" alt="Pis Eixample"></div> -->
+                <!-- <div class="gallery-slide"><img src="fotos/pis1-02.jpg" alt="Pis Eixample"></div> -->
+                <!-- Si no tens fotos, deixa el placeholder: -->
+                <div class="gallery-slide">
+                  <div class="property-img-placeholder" style="background:#c8c2b8; color:#6b6560; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; display:flex; align-items:center; justify-content:center; aspect-ratio:4/3;">
+                    <span data-lang="ca">Fotos disponibles en breu</span>
+                    <span data-lang="es">Fotos disponibles próximamente</span>
+                    <span data-lang="en">Photos coming soon</span>
+                  </div>
+                </div>
+              </div>
+              <div style="position:absolute; top:1rem; left:1rem;">
+                <span class="property-badge" data-lang="ca">Venda</span>
+                <span class="property-badge" data-lang="es">Venta</span>
+                <span class="property-badge" data-lang="en">For Sale</span>
+              </div>
+            </div>
+            <div class="property-info">
+              <h3 data-lang="ca">Pis reformat · Nova Esquerra de l'Eixample</h3>
+              <h3 data-lang="es">Piso reformado · Nova Esquerra de l'Eixample</h3>
+              <h3 data-lang="en">Renovated flat · Nova Esquerra de l'Eixample</h3>
+              <p class="property-address">Pl. Francesc Macià / Urgell · Barcelona · 7è 1a</p>
+              <!-- PREU: canvia "A consultar" pel preu real -->
+              <p class="property-price">
+                <span data-lang="ca">A consultar</span>
+                <span data-lang="es">A consultar</span>
+                <span data-lang="en">Price on request</span>
+              </p>
+              <div class="property-specs">
+                <div class="property-spec">
+                  <strong>3</strong>
+                  <span data-lang="ca">hab.</span><span data-lang="es">hab.</span><span data-lang="en">bed.</span>
+                </div>
+                <div class="property-spec">
+                  <strong>2</strong>
+                  <span data-lang="ca">banys</span><span data-lang="es">baños</span><span data-lang="en">baths</span>
+                </div>
+                <div class="property-spec">
+                  <strong>112 m²</strong>
+                  <span>&nbsp;</span>
+                </div>
+              </div>
+              <ul class="property-features">
+                <li><span data-lang="ca">1 habitació en suite</span><span data-lang="es">1 habitación en suite</span><span data-lang="en">1 en-suite bedroom</span></li>
+                <li><span data-lang="ca">1 bany en suite</span><span data-lang="es">1 baño en suite</span><span data-lang="en">1 en-suite bathroom</span></li>
+                <li><span data-lang="ca">Cuina equipada</span><span data-lang="es">Cocina equipada</span><span data-lang="en">Fitted kitchen</span></li>
+                <li><span data-lang="ca">Balcó</span><span data-lang="es">Balcón</span><span data-lang="en">Balcony</span></li>
+                <li><span data-lang="ca">Reformat · Ben comunicat</span><span data-lang="es">Reformado · Bien comunicado</span><span data-lang="en">Renovated · Well connected</span></li>
+              </ul>
+              <a href="contacte.html?ref=pis-eixample-7-1a" class="service-link">
+                <span data-lang="ca">Veure detall / Contactar →</span>
+                <span data-lang="es">Ver detalle / Contactar →</span>
+                <span data-lang="en">View detail / Contact →</span>
+              </a>
+            </div>
+          </div>
+          <!-- FI PIS 1 -->
+
+          <!-- PIS 2 -->
+          <div class="property-card">
+            <div class="img-gallery" style="position:relative;">
+              <div class="gallery-track">
+                <!-- AFEGEIX FOTOS DEL PIS 2 AQUÍ -->
+                <div class="gallery-slide">
+                  <div style="background:#3a3028; aspect-ratio:4/3; display:flex; align-items:center; justify-content:center;">
+                    <span style="color:rgba(255,255,255,0.3); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase;" data-lang="ca">Fotos disponibles en breu</span>
+                    <span style="color:rgba(255,255,255,0.3); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase;" data-lang="es">Fotos disponibles próximamente</span>
+                    <span style="color:rgba(255,255,255,0.3); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase;" data-lang="en">Photos coming soon</span>
+                  </div>
+                </div>
+              </div>
+              <div style="position:absolute; top:1rem; left:1rem;">
+                <span class="property-badge" data-lang="ca">Venda</span>
+                <span class="property-badge" data-lang="es">Venta</span>
+                <span class="property-badge" data-lang="en">For Sale</span>
+              </div>
+            </div>
+            <div class="property-info">
+              <h3 data-lang="ca">Reforma integral d'alta qualitat · 7è 2a</h3>
+              <h3 data-lang="es">Reforma integral de alta calidad · 7º 2a</h3>
+              <h3 data-lang="en">High-quality full renovation · 7th floor 2a</h3>
+              <p class="property-address">Nova Esquerra de l'Eixample · Barcelona · 7è 2a</p>
+              <p class="property-price">
+                <span data-lang="ca">A consultar</span>
+                <span data-lang="es">A consultar</span>
+                <span data-lang="en">Price on request</span>
+              </p>
+              <div class="property-specs">
+                <div class="property-spec">
+                  <strong>3</strong>
+                  <span data-lang="ca">hab.</span><span data-lang="es">hab.</span><span data-lang="en">bed.</span>
+                </div>
+                <div class="property-spec">
+                  <strong>2</strong>
+                  <span data-lang="ca">banys</span><span data-lang="es">baños</span><span data-lang="en">baths</span>
+                </div>
+                <div class="property-spec">
+                  <strong>106 m²</strong>
+                  <span>&nbsp;</span>
+                </div>
+              </div>
+              <ul class="property-features">
+                <li><span data-lang="ca">Reforma integral recent</span><span data-lang="es">Reforma integral reciente</span><span data-lang="en">Recent full renovation</span></li>
+                <li><span data-lang="ca">Terrassa exterior</span><span data-lang="es">Terraza exterior</span><span data-lang="en">Exterior terrace</span></li>
+                <li><span data-lang="ca">Galeria tancada</span><span data-lang="es">Galería cerrada</span><span data-lang="en">Enclosed gallery</span></li>
+                <li><span data-lang="ca">Cuina en U amb electrodomèstics</span><span data-lang="es">Cocina en U con electrodomésticos</span><span data-lang="en">U-shaped kitchen with appliances</span></li>
+                <li><span data-lang="ca">Suite amb doble lavabo</span><span data-lang="es">Suite con doble lavabo</span><span data-lang="en">Suite with double sink</span></li>
+              </ul>
+              <a href="contacte.html?ref=pis-eixample-7-2a" class="service-link">
+                <span data-lang="ca">Veure detall / Contactar →</span>
+                <span data-lang="es">Ver detalle / Contactar →</span>
+                <span data-lang="en">View detail / Contact →</span>
+              </a>
+            </div>
+          </div>
+          <!-- FI PIS 2 -->
+
+          <!-- ============================================================ -->
+          <!-- AFEGEIX MÉS PISOS EN VENDA AQUÍ (copia el bloc de dalt)     -->
+          <!-- ============================================================ -->
+
+          <!-- MISSATGE SI NO HI HA MÉS PROPIETATS -->
+          <div style="text-align:center; padding: 2rem 0; border: 1px dashed var(--light-line); margin-top:1rem;">
+            <p data-lang="ca">Contacta'ns per consultar les propietats disponibles no publicades.</p>
+            <p data-lang="es">Contáctanos para consultar las propiedades disponibles no publicadas.</p>
+            <p data-lang="en">Contact us to enquire about unpublished available properties.</p>
+            <a href="contacte.html" class="service-link" style="justify-content:center; margin-top:1rem;">
+              <span data-lang="ca">Contacta'ns →</span>
+              <span data-lang="es">Contáctanos →</span>
+              <span data-lang="en">Contact us →</span>
+            </a>
+          </div>
+
+        </div><!-- fi venda -->
+
+        <!-- ============================================================ -->
+        <!-- PROPIETATS EN LLOGUER                                        -->
+        <!-- ============================================================ -->
+        <div data-tab-content="lloguer">
+
+          <!-- AFEGEIX AQUÍ ELS PISOS EN LLOGUER -->
+          <div style="text-align:center; padding: 3rem 0; border: 1px dashed var(--light-line);">
+            <p data-lang="ca">Properament disposarem de propietats en lloguer. Contacta'ns per a més informació.</p>
+            <p data-lang="es">Próximamente dispondremos de propiedades en alquiler. Contáctanos para más información.</p>
+            <p data-lang="en">We will soon have rental properties. Contact us for more information.</p>
+            <a href="contacte.html" class="service-link" style="justify-content:center; margin-top:1rem;">
+              <span data-lang="ca">Contacta'ns →</span>
+              <span data-lang="es">Contáctanos →</span>
+              <span data-lang="en">Contact us →</span>
+            </a>
+          </div>
+
+        </div><!-- fi lloguer -->
+
+      </div><!-- fi tabs -->
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <h4>Finques Torra Xicoy</h4>
+    <p data-lang="ca">Immobiliària familiar amb més de 30 anys d'experiència. Compra, venda, lloguer i serveis integrals arreu de Catalunya.</p>
+    <p data-lang="es">Inmobiliaria familiar con más de 30 años de experiencia. Compra, venta, alquiler y servicios integrales en toda Cataluña.</p>
+    <p data-lang="en">Family real estate agency with over 30 years of experience. Buying, selling, rental and comprehensive services throughout Catalonia.</p>
+    <p class="footer-section-title" data-lang="ca">Serveis</p>
+    <p class="footer-section-title" data-lang="es">Servicios</p>
+    <p class="footer-section-title" data-lang="en">Services</p>
+    <a href="serveis.html" data-lang="ca">Compra i venda</a><a href="serveis.html" data-lang="es">Compra y venta</a><a href="serveis.html" data-lang="en">Buy & sell</a>
+    <a href="serveis.html" data-lang="ca">Lloguer</a><a href="serveis.html" data-lang="es">Alquiler</a><a href="serveis.html" data-lang="en">Rental</a>
+    <a href="valoracio.html" data-lang="ca">Valoració gratuïta</a><a href="valoracio.html" data-lang="es">Valoración gratuita</a><a href="valoracio.html" data-lang="en">Free valuation</a>
+    <hr class="footer-divider" />
+    <div class="footer-legal">
+      <span>© 2025 Finques Torra Xicoy</span>
+      <a href="legal.html" style="display:inline; padding:0;"><span data-lang="ca">Avís legal</span><span data-lang="es">Aviso legal</span><span data-lang="en">Legal notice</span></a>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
