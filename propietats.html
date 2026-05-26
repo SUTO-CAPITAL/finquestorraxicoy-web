@@ -6,6 +6,67 @@
   <title>Propietats · Finques Torra Xicoy</title>
   <meta name="description" content="Propietats en venda i lloguer a Barcelona i Catalunya. Finques Torra Xicoy." />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .gallery-wrapper {
+      position: relative;
+      overflow: hidden;
+      background: #1e1e1e;
+    }
+    .gallery-track {
+      display: flex;
+      transition: transform 0.4s ease;
+    }
+    .gallery-slide {
+      min-width: 100%;
+      flex-shrink: 0;
+    }
+    .gallery-slide img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.92);
+      border: none;
+      width: 36px;
+      height: 36px;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+    .gallery-btn.prev { left: 0.5rem; }
+    .gallery-btn.next { right: 0.5rem; }
+    .gallery-counter {
+      position: absolute;
+      bottom: 0.7rem;
+      right: 0.8rem;
+      background: rgba(0,0,0,0.5);
+      color: white;
+      font-size: 0.65rem;
+      padding: 0.2rem 0.5rem;
+      letter-spacing: 0.05em;
+    }
+    .gallery-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: white;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.6rem;
+      border: 1px solid #d8d3cc;
+      z-index: 10;
+    }
+  </style>
 </head>
 <body>
 
@@ -66,7 +127,6 @@
   <section class="section" style="padding-top:0;">
     <div class="container">
 
-      <!-- TABS VENDA / LLOGUER -->
       <div data-tabs>
         <div class="tabs">
           <button class="tab-btn active" data-tab="venda">
@@ -81,41 +141,56 @@
           </button>
         </div>
 
-        <!-- ============================================================ -->
-        <!-- PROPIETATS EN VENDA                                          -->
-        <!-- Per afegir un pis nou: copiar el bloc "property-card"        -->
-        <!-- i omplir les dades. Les fotos van com <img src="foto.jpg">   -->
-        <!-- ============================================================ -->
+        <!-- VENDA -->
         <div data-tab-content="venda">
 
-          <!-- PIS 1 -->
+          <!-- PIS 112 m² -->
           <div class="property-card">
-            <div class="img-gallery" style="position:relative;">
-              <div class="gallery-track">
-                <!-- AFEGEIX LES FOTOS DEL PIS AQUÍ: -->
-                <!-- <div class="gallery-slide"><img src="fotos/pis1-01.jpg" alt="Pis Eixample"></div> -->
-                <!-- <div class="gallery-slide"><img src="fotos/pis1-02.jpg" alt="Pis Eixample"></div> -->
-                <!-- Si no tens fotos, deixa el placeholder: -->
-                <div class="gallery-slide">
-                  <div class="property-img-placeholder" style="background:#c8c2b8; color:#6b6560; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; display:flex; align-items:center; justify-content:center; aspect-ratio:4/3;">
-                    <span data-lang="ca">Fotos disponibles en breu</span>
-                    <span data-lang="es">Fotos disponibles próximamente</span>
-                    <span data-lang="en">Photos coming soon</span>
-                  </div>
-                </div>
+            <div class="gallery-wrapper" id="gal1">
+              <div class="gallery-badge" data-lang="ca">Venda</div>
+              <div class="gallery-badge" data-lang="es">Venta</div>
+              <div class="gallery-badge" data-lang="en">For Sale</div>
+              <div class="gallery-track" id="gal1-track">
+                <div class="gallery-slide"><img src="img/pis-112/sala_mobles.png" alt="Sala"></div>
+                <div class="gallery-slide"><img src="img/pis-112/1_SALA__3_.png" alt="Sala"></div>
+                <div class="gallery-slide"><img src="img/pis-112/2_SALA__2_.png" alt="Sala"></div>
+                <div class="gallery-slide"><img src="img/pis-112/5_SALA__2_.jpg" alt="Sala"></div>
+                <div class="gallery-slide"><img src="img/pis-112/8_TOT.jpg" alt="Vista general"></div>
+                <div class="gallery-slide"><img src="img/pis-112/CUINA__3_.jpg" alt="Cuina"></div>
+                <div class="gallery-slide"><img src="img/pis-112/10_CUINA__2_.jpg" alt="Cuina"></div>
+                <div class="gallery-slide"><img src="img/pis-112/11_CUINA__4_.jpg" alt="Cuina"></div>
+                <div class="gallery-slide"><img src="img/pis-112/31_REBEDOR.jpg" alt="Rebedor"></div>
+                <div class="gallery-slide"><img src="img/pis-112/14_DISTRIBUIDOR.jpg" alt="Distribuidor"></div>
+                <div class="gallery-slide"><img src="img/pis-112/15_DISTRIBUIDOR.png" alt="Distribuidor"></div>
+                <div class="gallery-slide"><img src="img/pis-112/Suite_mobles1.png" alt="Suite"></div>
+                <div class="gallery-slide"><img src="img/pis-112/Suite_mobles2.png" alt="Suite"></div>
+                <div class="gallery-slide"><img src="img/pis-112/16_SUITE_1.jpg" alt="Suite"></div>
+                <div class="gallery-slide"><img src="img/pis-112/20_SUITE.jpg" alt="Suite"></div>
+                <div class="gallery-slide"><img src="img/pis-112/22_SUITE_2.jpg" alt="Suite"></div>
+                <div class="gallery-slide"><img src="img/pis-112/23_SUITE__4_.png" alt="Suite"></div>
+                <div class="gallery-slide"><img src="img/pis-112/armaris_empotrats_suite.jpg" alt="Armaris suite"></div>
+                <div class="gallery-slide"><img src="img/pis-112/19_ARMARIS_EMPOTRATS.jpg" alt="Armaris"></div>
+                <div class="gallery-slide"><img src="img/pis-112/25_LAVABO_SUITE__3_.jpg" alt="Lavabo suite"></div>
+                <div class="gallery-slide"><img src="img/pis-112/26_LAVABO_SUITE.jpg" alt="Lavabo suite"></div>
+                <div class="gallery-slide"><img src="img/pis-112/29_LAVABO_2__1_.jpg" alt="Lavabo"></div>
+                <div class="gallery-slide"><img src="img/pis-112/30_LAVABO_2__2_.jpg" alt="Lavabo"></div>
+                <div class="gallery-slide"><img src="img/pis-112/Habitacio_1_mobles.png" alt="Habitació 1"></div>
+                <div class="gallery-slide"><img src="img/pis-112/27_HABITACIO_1.png" alt="Habitació 1"></div>
+                <div class="gallery-slide"><img src="img/pis-112/Habitacio_2_mobles.png" alt="Habitació 2"></div>
+                <div class="gallery-slide"><img src="img/pis-112/28_HABITACIO_2__2_.png" alt="Habitació 2"></div>
+                <div class="gallery-slide"><img src="img/pis-112/1f204f7f-e23a-416e-929c-4db522b437e8.png" alt="Habitacions"></div>
+                <div class="gallery-slide"><img src="img/pis-112/Planol_7-1.png" alt="Plànol"></div>
               </div>
-              <div style="position:absolute; top:1rem; left:1rem;">
-                <span class="property-badge" data-lang="ca">Venda</span>
-                <span class="property-badge" data-lang="es">Venta</span>
-                <span class="property-badge" data-lang="en">For Sale</span>
-              </div>
+              <button class="gallery-btn prev" onclick="galMove('gal1',-1)">‹</button>
+              <button class="gallery-btn next" onclick="galMove('gal1',1)">›</button>
+              <div class="gallery-counter" id="gal1-counter">1 / 29</div>
             </div>
+
             <div class="property-info">
               <h3 data-lang="ca">Pis reformat · Nova Esquerra de l'Eixample</h3>
               <h3 data-lang="es">Piso reformado · Nova Esquerra de l'Eixample</h3>
               <h3 data-lang="en">Renovated flat · Nova Esquerra de l'Eixample</h3>
               <p class="property-address">Pl. Francesc Macià / Urgell · Barcelona</p>
-              <!-- PREU: canvia "A consultar" pel preu real -->
               <p class="property-price">
                 <span data-lang="ca">A consultar</span>
                 <span data-lang="es">A consultar</span>
@@ -142,34 +217,35 @@
                 <li><span data-lang="ca">Balcó</span><span data-lang="es">Balcón</span><span data-lang="en">Balcony</span></li>
                 <li><span data-lang="ca">Reformat · Ben comunicat</span><span data-lang="es">Reformado · Bien comunicado</span><span data-lang="en">Renovated · Well connected</span></li>
               </ul>
-              <a href="contacte.html?ref=pis-eixample-7-1a" class="service-link">
-                <span data-lang="ca">Veure detall / Contactar →</span>
-                <span data-lang="es">Ver detalle / Contactar →</span>
-                <span data-lang="en">View detail / Contact →</span>
+              <a href="contacte.html" class="service-link">
+                <span data-lang="ca">Contactar →</span>
+                <span data-lang="es">Contactar →</span>
+                <span data-lang="en">Contact →</span>
               </a>
             </div>
           </div>
-          <!-- FI PIS 1 -->
+          <!-- FI PIS 112 -->
 
-          <!-- PIS 2 -->
+          <!-- PIS 106 m² -->
           <div class="property-card">
-            <div class="img-gallery" style="position:relative;">
-              <div class="gallery-track">
-                <!-- AFEGEIX FOTOS DEL PIS 2 AQUÍ -->
+            <div class="gallery-wrapper" id="gal2">
+              <div class="gallery-badge" data-lang="ca">Venda</div>
+              <div class="gallery-badge" data-lang="es">Venta</div>
+              <div class="gallery-badge" data-lang="en">For Sale</div>
+              <div class="gallery-track" id="gal2-track">
+                <!-- AFEGEIX AQUÍ LES FOTOS DEL PIS DE 106 m² -->
+                <!-- <div class="gallery-slide"><img src="img/pis-106/foto1.jpg" alt="Sala"></div> -->
                 <div class="gallery-slide">
-                  <div style="background:#3a3028; aspect-ratio:4/3; display:flex; align-items:center; justify-content:center;">
+                  <div style="height:320px; background:#3a3028; display:flex; align-items:center; justify-content:center;">
                     <span style="color:rgba(255,255,255,0.3); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase;" data-lang="ca">Fotos disponibles en breu</span>
-                    <span style="color:rgba(255,255,255,0.3); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase;" data-lang="es">Fotos disponibles próximamente</span>
+                    <span style="color:rgba(255,255,255,0.3); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase;" data-lang="es">Fotos próximamente</span>
                     <span style="color:rgba(255,255,255,0.3); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase;" data-lang="en">Photos coming soon</span>
                   </div>
                 </div>
               </div>
-              <div style="position:absolute; top:1rem; left:1rem;">
-                <span class="property-badge" data-lang="ca">Venda</span>
-                <span class="property-badge" data-lang="es">Venta</span>
-                <span class="property-badge" data-lang="en">For Sale</span>
-              </div>
+              <div class="gallery-counter" id="gal2-counter">1 / 1</div>
             </div>
+
             <div class="property-info">
               <h3 data-lang="ca">Pis reformat · Nova Esquerra de l'Eixample</h3>
               <h3 data-lang="es">Piso reformado · Nova Esquerra de l'Eixample</h3>
@@ -195,45 +271,25 @@
                 </div>
               </div>
               <ul class="property-features">
-                <li><span data-lang="ca">Reforma integral recent</span><span data-lang="es">Reforma integral reciente</span><span data-lang="en">Recent full renovation</span></li>
-                <li><span data-lang="ca">Terrassa exterior</span><span data-lang="es">Terraza exterior</span><span data-lang="en">Exterior terrace</span></li>
-                <li><span data-lang="ca">Galeria tancada</span><span data-lang="es">Galería cerrada</span><span data-lang="en">Enclosed gallery</span></li>
-                <li><span data-lang="ca">Cuina en U amb electrodomèstics</span><span data-lang="es">Cocina en U con electrodomésticos</span><span data-lang="en">U-shaped kitchen with appliances</span></li>
-                <li><span data-lang="ca">Suite amb doble lavabo</span><span data-lang="es">Suite con doble lavabo</span><span data-lang="en">Suite with double sink</span></li>
+                <li><span data-lang="ca">1 habitació en suite</span><span data-lang="es">1 habitación en suite</span><span data-lang="en">1 en-suite bedroom</span></li>
+                <li><span data-lang="ca">1 bany en suite</span><span data-lang="es">1 baño en suite</span><span data-lang="en">1 en-suite bathroom</span></li>
+                <li><span data-lang="ca">Cuina equipada</span><span data-lang="es">Cocina equipada</span><span data-lang="en">Fitted kitchen</span></li>
+                <li><span data-lang="ca">Balcó</span><span data-lang="es">Balcón</span><span data-lang="en">Balcony</span></li>
+                <li><span data-lang="ca">Reformat · Ben comunicat</span><span data-lang="es">Reformado · Bien comunicado</span><span data-lang="en">Renovated · Well connected</span></li>
               </ul>
-              <a href="contacte.html?ref=pis-eixample-7-2a" class="service-link">
-                <span data-lang="ca">Veure detall / Contactar →</span>
-                <span data-lang="es">Ver detalle / Contactar →</span>
-                <span data-lang="en">View detail / Contact →</span>
+              <a href="contacte.html" class="service-link">
+                <span data-lang="ca">Contactar →</span>
+                <span data-lang="es">Contactar →</span>
+                <span data-lang="en">Contact →</span>
               </a>
             </div>
           </div>
-          <!-- FI PIS 2 -->
-
-          <!-- ============================================================ -->
-          <!-- AFEGEIX MÉS PISOS EN VENDA AQUÍ (copia el bloc de dalt)     -->
-          <!-- ============================================================ -->
-
-          <!-- MISSATGE SI NO HI HA MÉS PROPIETATS -->
-          <div style="text-align:center; padding: 2rem 0; border: 1px dashed var(--light-line); margin-top:1rem;">
-            <p data-lang="ca">Contacta'ns per consultar les propietats disponibles no publicades.</p>
-            <p data-lang="es">Contáctanos para consultar las propiedades disponibles no publicadas.</p>
-            <p data-lang="en">Contact us to enquire about unpublished available properties.</p>
-            <a href="contacte.html" class="service-link" style="justify-content:center; margin-top:1rem;">
-              <span data-lang="ca">Contacta'ns →</span>
-              <span data-lang="es">Contáctanos →</span>
-              <span data-lang="en">Contact us →</span>
-            </a>
-          </div>
+          <!-- FI PIS 106 -->
 
         </div><!-- fi venda -->
 
-        <!-- ============================================================ -->
-        <!-- PROPIETATS EN LLOGUER                                        -->
-        <!-- ============================================================ -->
+        <!-- LLOGUER -->
         <div data-tab-content="lloguer">
-
-          <!-- AFEGEIX AQUÍ ELS PISOS EN LLOGUER -->
           <div style="text-align:center; padding: 3rem 0; border: 1px dashed var(--light-line);">
             <p data-lang="ca">Properament disposarem de propietats en lloguer. Contacta'ns per a més informació.</p>
             <p data-lang="es">Próximamente dispondremos de propiedades en alquiler. Contáctanos para más información.</p>
@@ -244,11 +300,9 @@
               <span data-lang="en">Contact us →</span>
             </a>
           </div>
-
-        </div><!-- fi lloguer -->
+        </div>
 
       </div><!-- fi tabs -->
-
     </div>
   </section>
 </main>
@@ -259,12 +313,6 @@
     <p data-lang="ca">Immobiliària familiar amb més de 30 anys d'experiència. Compra, venda, lloguer i serveis integrals arreu de Catalunya.</p>
     <p data-lang="es">Inmobiliaria familiar con más de 30 años de experiencia. Compra, venta, alquiler y servicios integrales en toda Cataluña.</p>
     <p data-lang="en">Family real estate agency with over 30 years of experience. Buying, selling, rental and comprehensive services throughout Catalonia.</p>
-    <p class="footer-section-title" data-lang="ca">Serveis</p>
-    <p class="footer-section-title" data-lang="es">Servicios</p>
-    <p class="footer-section-title" data-lang="en">Services</p>
-    <a href="serveis.html" data-lang="ca">Compra i venda</a><a href="serveis.html" data-lang="es">Compra y venta</a><a href="serveis.html" data-lang="en">Buy & sell</a>
-    <a href="serveis.html" data-lang="ca">Lloguer</a><a href="serveis.html" data-lang="es">Alquiler</a><a href="serveis.html" data-lang="en">Rental</a>
-    <a href="valoracio.html" data-lang="ca">Valoració gratuïta</a><a href="valoracio.html" data-lang="es">Valoración gratuita</a><a href="valoracio.html" data-lang="en">Free valuation</a>
     <hr class="footer-divider" />
     <div class="footer-legal">
       <span>© 2025 Finques Torra Xicoy</span>
@@ -274,6 +322,30 @@
 </footer>
 
 <script src="main.js"></script>
+<script>
+  // Gallery per a propietats
+  const galState = {};
+
+  function galMove(id, dir) {
+    const track = document.getElementById(id + '-track');
+    const slides = track.querySelectorAll('.gallery-slide');
+    const counter = document.getElementById(id + '-counter');
+    if (!galState[id]) galState[id] = 0;
+    galState[id] = (galState[id] + dir + slides.length) % slides.length;
+    track.style.transform = `translateX(-${galState[id] * 100}%)`;
+    counter.textContent = (galState[id] + 1) + ' / ' + slides.length;
+  }
+
+  // Touch/swipe per mòbil
+  document.querySelectorAll('.gallery-wrapper').forEach(wrapper => {
+    let startX = 0;
+    const id = wrapper.id;
+    wrapper.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive: true});
+    wrapper.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) galMove(id, diff > 0 ? 1 : -1);
+    }, {passive: true});
+  });
+</script>
 </body>
 </html>
-
