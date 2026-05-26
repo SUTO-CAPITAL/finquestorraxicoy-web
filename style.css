@@ -257,7 +257,152 @@ main { padding-top: 70px; }
 .container { max-width: 720px; margin: 0 auto; }
 .container-wide { max-width: 900px; margin: 0 auto; }
 
-/* ===== HERO ===== */
+
+/* ===== HERO EIXAMPLE (portada) ===== */
+.hero-eixample {
+  position: relative;
+  padding: 0 !important;
+  background: transparent !important;
+  overflow: hidden;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Foto de fons — Vista aèria Eixample / Pla Cerdà */
+.hero-bg-photo {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1583422409516-2895a77efded?w=1600&q=85&fm=jpg&fit=crop&crop=center');
+  background-size: cover;
+  background-position: center 30%;
+  filter: blur(2px) brightness(0.5) saturate(0.75);
+  transform: scale(1.04);
+}
+
+/* Overlay: crema a l'esquerra, transparent a la dreta */
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(245,242,237,0.97) 0%,
+    rgba(245,242,237,0.93) 35%,
+    rgba(245,242,237,0.45) 55%,
+    rgba(245,242,237,0.05) 72%,
+    transparent 85%
+  );
+}
+
+/* Contingut interior */
+.hero-eixample-inner {
+  position: relative;
+  z-index: 2;
+  padding: 7rem 2rem 3rem;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.hero-eixample-text {
+  max-width: 520px;
+}
+
+.hero-eixample-text h1 {
+  margin: 1.5rem 0 1.5rem;
+  color: var(--dark);
+}
+
+.hero-eixample-text p {
+  font-size: 1rem;
+  max-width: 420px;
+  color: var(--mid);
+}
+
+/* Barra stats */
+.hero-stats-bar {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: rgba(245,242,237,0.97);
+  border-top: 1px solid var(--light-line);
+  backdrop-filter: blur(4px);
+}
+
+.hero-stat {
+  padding: 1.4rem 1.5rem;
+  border-right: 1px solid var(--light-line);
+  text-align: center;
+}
+.hero-stat:last-child { border-right: none; }
+
+.hero-stat-n {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--dark);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.hero-stat-l {
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mid);
+  line-height: 1.4;
+}
+
+.hero-stat-l span { display: block; }
+
+/* Crèdit foto (discret) */
+.hero-eixample::after {
+  content: 'Photo: Logan Armstrong / Unsplash';
+  position: absolute;
+  bottom: 4.5rem;
+  right: 1rem;
+  font-size: 0.38rem;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.05em;
+  z-index: 3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-eixample {
+    min-height: auto;
+  }
+  .hero-bg-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(245,242,237,0.97) 0%,
+      rgba(245,242,237,0.95) 60%,
+      rgba(245,242,237,0.7) 80%,
+      rgba(245,242,237,0.5) 100%
+    );
+  }
+  .hero-eixample-inner {
+    padding: 5.5rem 1.5rem 2rem;
+  }
+  .hero-stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero-stat:nth-child(2) { border-right: none; }
+  .hero-stat:nth-child(3) { border-top: 1px solid var(--light-line); }
+  .hero-stat:nth-child(4) { border-top: 1px solid var(--light-line); border-right: none; }
+}
+
+@media (max-width: 480px) {
+  .hero-stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero-stat-n { font-size: 1.6rem; }
+}
+
+
+/* ===== HERO (altres pàgines) ===== */
 .hero {
   padding: 5rem 2rem 4rem;
   background: var(--cream);
