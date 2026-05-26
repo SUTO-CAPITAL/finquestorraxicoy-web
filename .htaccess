@@ -1,41 +1,36 @@
-# Finques Torra Xicoy — GoDaddy Apache config
+# Finques Torra Xicoy
 
 Options -Indexes
 
-# Permet accés a les carpetes d'imatges
-<Directory "pis-112">
-    Options FollowSymLinks
-    AllowOverride None
-    Require all granted
-</Directory>
+# No cache per imatges (forçar versió fresca sempre)
+<FilesMatch "\.(jpg|jpeg|png|gif|webp)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+</FilesMatch>
 
-<Directory "pis-106">
-    Options FollowSymLinks
-    AllowOverride None
-    Require all granted
-</Directory>
+# Cache llarga per CSS i JS (versió controlada)
+<FilesMatch "\.(css|js)$">
+    Header set Cache-Control "max-age=3600, public"
+</FilesMatch>
 
-# MIME types per a imatges
+# MIME types
 AddType image/jpeg .jpg .jpeg
 AddType image/png .png
 AddType image/webp .webp
 
-# Cache per a imatges (1 any)
-<FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico)$">
-    Header set Cache-Control "max-age=31536000, public"
-</FilesMatch>
-
-# Cache per a CSS i JS (1 setmana)
-<FilesMatch "\.(css|js)$">
-    Header set Cache-Control "max-age=604800, public"
-</FilesMatch>
-
-# Comprimir contingut
+# Comprimir
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/html text/css application/javascript
 </IfModule>
 
-# Redirecció HTTPS
+# HTTPS redirect
 RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# URLs sense .html (propietats → propietats.html)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ %{REQUEST_FILENAME}.html [L]
