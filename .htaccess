@@ -1,0 +1,41 @@
+# Finques Torra Xicoy — GoDaddy Apache config
+
+Options -Indexes
+
+# Permet accés a les carpetes d'imatges
+<Directory "pis-112">
+    Options FollowSymLinks
+    AllowOverride None
+    Require all granted
+</Directory>
+
+<Directory "pis-106">
+    Options FollowSymLinks
+    AllowOverride None
+    Require all granted
+</Directory>
+
+# MIME types per a imatges
+AddType image/jpeg .jpg .jpeg
+AddType image/png .png
+AddType image/webp .webp
+
+# Cache per a imatges (1 any)
+<FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico)$">
+    Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+
+# Cache per a CSS i JS (1 setmana)
+<FilesMatch "\.(css|js)$">
+    Header set Cache-Control "max-age=604800, public"
+</FilesMatch>
+
+# Comprimir contingut
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript
+</IfModule>
+
+# Redirecció HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
